@@ -8,6 +8,8 @@ class Home extends CI_Controller
         parent::__construct();
 
         $this->load->model('Auth');
+
+        $this->load->library('session');
     }
 
 
@@ -32,6 +34,13 @@ class Home extends CI_Controller
         if ($user->usernameUser != $username || $user->passwordUser != $password) {
             redirect('home', 'refresh');
         } else {
+            $userdata = array(
+                'role' => $user->roleUser,
+                'username' => $user->usernameUser,
+                'name' => $user->nameUser,
+                'status' => 'login',
+            );
+            $this->session->set_userdata($userdata);
             redirect('dashboard/dashboardSuperint', 'refresh');
         }
     }
@@ -64,4 +73,9 @@ class Home extends CI_Controller
             redirect('dashboard/dashboardOperator', 'refresh');
         }
     }
+    public function logout()
+	{
+        $this->session->sess_destroy();
+        redirect('home');
+	}
 }

@@ -3,12 +3,20 @@
 </head>
 
 <body id="superin-body">
+
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="<?= base_url('dashboard/dashboardSuperint')?>" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Welcome, User</span>
+                    <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+
+                        <span class="fs-5 d-none d-sm-inline">Welcome,<?php
+                                                                        if ($_SESSION['status'] == 'login') {
+                                                                            echo "<br>", $_SESSION["name"];
+                                                                        }else{
+                                                                           echo "admin"; 
+                                                                        } ?></span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                         <li class="nav-item">
@@ -19,9 +27,9 @@
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-primary">
                                 <i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production</span></a>
-                            <ul class="collapse nav flex-column ms-1 "  id="submenu1" data-bs-parent="#menu">
+                            <ul class="collapse nav flex-column ms-1 " id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="<?= base_url()?>superintendent/productionData" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Production</span> Data</a>
+                                    <a href="<?= base_url() ?>superintendent/productionData" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Production</span> Data</a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Produc.</span>Calculation</a>
@@ -48,7 +56,7 @@
                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-primary">
                                 <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100"> 
+                                <li class="w-100">
                                     <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Product</span> 1</a>
                                 </li>
                                 <li>
@@ -80,7 +88,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="<?= base_url('home/index')?>">Sign out</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('home/logout') ?>">Sign out</a></li>
                         </ul>
                     </div>
                 </div>
