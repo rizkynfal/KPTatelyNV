@@ -45,7 +45,7 @@
         <div class="modal fade " id="loginModalSuperint" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content bg-secondary">
-                    <form action="home/loginSuperint" method="POST">
+                    <form action="<?= base_url() ?>home/loginSuperint" method="POST">
                         <div class="modal-header">
                             <h5 class="modal-title text-primary" id="loginModalLabel">Superintendent Login</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

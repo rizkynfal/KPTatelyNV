@@ -8,12 +8,6 @@ class Home extends CI_Controller
         parent::__construct();
 
         $this->load->model('Auth');
-
-
-        $this->load->library('form_validation');
-
-
-        $this->load->library('session');
     }
 
 
@@ -35,17 +29,11 @@ class Home extends CI_Controller
         $query = $this->Auth->getByUsername($username);
         $user = $query->row();
 
-        if (!$user) return FALSE;
-        if (!password_verify($password, $user->password)) return FALSE;
-
-        $userdata = array(
-            'role' => $user->role,
-            'username' => $user->username,
-            'name' => $user->name,
-            'status' => 'login',
-        );
-        $this->session->set_userdata($userdata);
-        redirect('dashboard');
+        if ($user->usernameUser != $username || $user->passwordUser != $password) {
+            redirect('home', 'refresh');
+        } else {
+            redirect('dashboard/dashboardSuperint', 'refresh');
+        }
     }
 
     public function loginSupervisor()
@@ -53,45 +41,27 @@ class Home extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-
         $query = $this->Auth->getByUsername($username);
         $user = $query->row();
 
-        if (!$user) return FALSE;
-        if ($user->role != "supervisor") return FALSE;
-        if (!password_verify($password, $user->password)) return FALSE;
-
-        $userdata = array(
-            'role' => $user->role,
-            'username' => $user->username,
-            'name' => $user->name,
-            'status' => 'login',
-        );
-        $this->session->set_userdata($userdata);
-
-        redirect('dashboard/dashboardSupervisor');
+        if ($user->usernameUser != $username || $user->passwordUser != $password) {
+            redirect('home', 'refresh');
+        } else {
+            redirect('dashboard/dashboardSupervisor', 'refresh');
+        }
     }
     public function loginOperator()
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-
         $query = $this->Auth->getByUsername($username);
         $user = $query->row();
 
-        if (!$user) return FALSE;
-        if ($user->role != "operator") return FALSE;
-        if (!password_verify($password, $user->password)) return FALSE;
-
-        $userdata = array(
-            'role' => $user->role,
-            'username' => $user->username,
-            'name' => $user->name,
-            'status' => 'login',
-        );
-        $this->session->set_userdata($userdata);
-
-        redirect('dashboard/dashboardOperator');
+        if ($user->usernameUser != $username || $user->passwordUser != $password) {
+            redirect('home', 'refresh');
+        } else {
+            redirect('dashboard/dashboardOperator', 'refresh');
+        }
     }
 }
