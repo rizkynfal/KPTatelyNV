@@ -20,14 +20,14 @@
                         <a class="mt-1 nav-link active"aria-current="page" style="color: #1F4690;" href="#" id="nav_kontak">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="mt-1 nav-link montserrat-semibold" style="color: #1F4690;" href="#" id="mitra">Tentang</a>
+                        <a class="mt-1 nav-link montserrat-semibold" style="color: #1F4690;" href="#" id="">Tentang</a>
                     </li>
                     <li class="nav-item dropdown-center">
                         <a class="nav-link dropdown-toggle btn btn-primary" style="background-color: #1F4690; color:#FFE5B4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Masuk
                         </a>
                         <ul class="dropdown-menu" style="background-color: #1F4690;" aria-labelledby="navbarDropdown">
-                            <li><a class="text-center dropdown-item text-primary"  href="#">Superintendent</a></li>
+                            <li><a class="text-center dropdown-item text-primary"  href="<?= base_url()?>dashboard/dashboardSuperint">Superintendent</a></li>
                             <li><a class="text-center dropdown-item text-primary"  href="#">Supervisor</a></li>
                             <li><a class="text-center dropdown-item text-primary"  href="#">Operator</a></li>
                         </ul>
