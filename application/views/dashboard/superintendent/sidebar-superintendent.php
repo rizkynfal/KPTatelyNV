@@ -2,73 +2,86 @@
 
 </head>
 
-<body>
+<body id="superin-body">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-auto bg-dark sticky-top">
-                <div class="d-flex flex-sm-column flex-row flex-nowrap text-white bg-dark align-items-center sticky-top">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="bi-bootstrap fs-4"> Sidebar</span>
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="<?= base_url('dashboard/dashboardSuperint')?>" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">Welcome, User</span>
                     </a>
-                    <hr>
-                    <ul class="navbar-nav nav-pills ">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#home"></use>
-                                </svg>
-                                Home
+                            <a href="#" class=" text-primary nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#speedometer2"></use>
-                                </svg>
-                                Dashboard
-                            </a>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-primary">
+                                <i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production</span></a>
+                            <ul class="collapse nav flex-column ms-1 "  id="submenu1" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="<?= base_url()?>superintendent/productionData" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Production</span> Data</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Produc.</span>Calculation</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#table"></use>
-                                </svg>
-                                Orders
-                            </a>
+                            <a href="#" class="nav-link px-0 align-middle text-primary">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#grid"></use>
-                                </svg>
-                                Products
-                            </a>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-primary ">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#people-circle"></use>
-                                </svg>
-                                Customers
-                            </a>
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-primary">
+                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li class="w-100"> 
+                                    <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle text-primary">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
                         </li>
                     </ul>
                     <hr>
-                    <div class="dropdown mt-auto">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" width="40" height="40" aria-expanded="false">
-                            <span class="bi-person-circle"></span>
-                            <strong>mdo</strong>
+                    <div class="container-fluid dropdown p-2 mb-4 bg-dark">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1">loser</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('home/index')?>">Sign out</a></li>
                         </ul>
                     </div>
-
                 </div>
             </div>

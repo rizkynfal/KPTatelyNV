@@ -1,3 +1,3 @@
-<div class="col-sm p-3 min-vh-100">
-    sss
+<div class="container-fluid p-3 min-vh-100">
+ttttttttttttttttt
 </div>

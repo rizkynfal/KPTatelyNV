@@ -28,26 +28,26 @@
     src: url(../font/Montserrat-SemiBold.ttf);
 }
 
-.Montserrat-black {
+.montserrat-black {
     font-family: "MontserratBlack" !important;
 }
 
-.Montserrat-bold {
+.montserrat-bold {
     font-family: "MontserratBold" !important;
 }
 
-.Montserrat-regular {
+.montserrat-regular {
     font-family: "MontserratRegular" !important;
 }
 
-.Montserrat-light {
+.montserrat-light {
     font-family: "MontserratLight" !important;
 }
 
-.Montserrat-thin {
+.montserrat-thin {
     font-family: "MontserratThin" !important;
 }
 
-.Montserrat-semibold {
+.montserrat-semibold {
     font-family: "MontserratSemiBold" !important;
 }

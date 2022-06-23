@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- bootstrap CSS-->
     <link rel="stylesheet" href="<?php echo base_url('assets/node_modules/bootstrap/dist/css/bootstrap.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/node_modules/bootstrap/dist/css/bootstrap.bundle.min.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/node_modules/bootstrap/dist/css/bootstrap-grid.css') ?>">
 
     <!-- bootstrap JS -->
     <script src="<?php echo base_url('assets/node_modules/bootstrap/dist/js/bootstrap.js') ?>"></script>

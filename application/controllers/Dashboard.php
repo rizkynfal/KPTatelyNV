@@ -7,23 +7,23 @@ class Dashboard extends CI_Controller
     {
         $data['judul'] = "Superintendent Dashboard";
         $this->load->view('templates/head');
-        $this->load->view('dashboard/superintendent/sidebar-superintendent',$data);
+        $this->load->view('dashboard/superintendent/sidebar-superintendent', $data);
         $this->load->view('dashboard/superintendent/index');
     }
     public function dashboardSupervisor()
     {
-        $data['judul'] = "Superintendent Dashboard";
+        $data['judul'] = "Supervisor Dashboard";
         $this->load->view('templates/head');
-        $this->load->view('dashboard/sidebar-superintendent');
-        $this->load->view('dashboard/superintendent/index');
+        $this->load->view('home_page/navbar-home', $data);
+        $this->load->view('home_page/index');
         $this->load->view('templates/footer');
     }
     public function dashboardOperator()
     {
-        $data['judul'] = "Superintendent Dashboard";
+        $data['judul'] = "Operator Dashboard";
         $this->load->view('templates/head');
-        $this->load->view('dashboard/sidebar-superintendent');
-        $this->load->view('dashboard/superintendent/index');
+        $this->load->view('home_page/navbar-home', $data);
+        $this->load->view('home_page/index');
         $this->load->view('templates/footer');
     }
 }

@@ -1,10 +1,18 @@
 body {
     font-family: "MontserratSemiBold" !important;
-    font-size: 18px;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+}
+
+#superin-body ul a {
+    font-family: "MontserratRegular" !important;
+    font-size: 14px;
+}
+
+.monthly-gas-table table tr th {
+    font-size: 12px;
+}
+
+.monthly-gas-table table tr td {
+    font-size: 12px;
 }
 
 footer {
