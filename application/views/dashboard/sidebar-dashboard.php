@@ -20,7 +20,7 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                         <li class="nav-item">
-                            <a href="#" class=" text-primary nav-link align-middle px-0">
+                            <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class=" text-primary nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
@@ -29,7 +29,7 @@
                                 <i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production</span></a>
                             <ul class="collapse nav flex-column ms-1 " id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="<?= base_url() ?>superintendent/productionData" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Production</span> Data</a>
+                                    <a href="<?= base_url() ?>production/productionData" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Production</span> Data</a>
                                 </li>
                                 <li>
                                     <a href="#" class="nav-link px-0 text-primary"> <span class="d-none d-sm-inline">Produc.</span>Calculation</a>

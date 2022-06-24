@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
     {
         $data['judul'] = "Superintendent Dashboard";
         $this->load->view('templates/head');
-        $this->load->view('dashboard/superintendent/sidebar-superintendent', $data);
+        $this->load->view('dashboard/sidebar-dashboard', $data);
         $this->load->view('dashboard/superintendent/index');
     }
     public function dashboardSupervisor()
