@@ -10,7 +10,7 @@
                         </div>
                         <div class="panel-body m-4">
 
-                            <div class="table-responsive">
+                            <div class="table-responsive ">
                                 <table id="example" class="table table-bordered table-hover text-center border-dark">
 
                                     <tr>

@@ -36,7 +36,6 @@
                                 <td>tes</td>
                                 <td>tes</td>
                                 <td>tes</td>
-
                             </tr>
                             </tbody>
                         </table>

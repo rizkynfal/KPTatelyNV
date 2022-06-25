@@ -7,6 +7,7 @@ class Production extends CI_Controller
         $data['judul'] = "Superintendent Dashboard";
         $this->load->view('templates/head');
         $this->load->view('dashboard/sidebar-dashboard',$data);
+        $this->load->view('dashboard/index');
         $this->load->view('data_production/production_data');
     }
     public function monthlyOilProduced()

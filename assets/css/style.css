@@ -2,20 +2,15 @@ body {
     font-family: "MontserratSemiBold" !important;
 }
 
-#superin-body ul a {
-    font-family: "MontserratRegular" !important;
-    font-size: 14px;
+#sidebar {
+    width: 35%;
 }
 
-.monthly-gas-table table tr th {
-    font-size: 12px;
-}
-
-.monthly-gas-table table tr td {
-    font-size: 12px;
-}
-
-footer {
-    background-color: #1F4690;
-    margin-top: auto;
+.container-sm div nav {
+    position: absolute;
+    top: 8%;
+    box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 20%);
+    margin-left: 0%;
+    min-height: 100%;
+    margin-right: 50%;
 }
