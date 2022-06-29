@@ -1,16 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "MontserratSemiBold" !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: #fff;
 }
 
-#sidebar {
-    width: 35%;
+
+/* #bg-login .container {
+    width: 80%;
+} */
+
+#loginUtama .container {
+    background: #3A5BA0;
+    padding: 20px 40px;
+    border-radius: 5px;
 }
 
-.container-sm div nav {
+#loginUtama .container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background: lightblue;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.text {
+    margin-top: 30px;
+}
+
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 300px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label {
     position: absolute;
-    top: 8%;
-    box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 20%);
-    margin-left: 0%;
-    min-height: 100%;
-    margin-right: 50%;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: lightblue;
+    transform: translateY(-30px);
+}
+
+
+/* dashboard */
+
+.profil-photo {
+    width: 100px;
+    border-radius: 100%;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul li a {
+    display: block;
+    margin-left: -30px;
+    color: black;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.menu ul li a:hover {
+    background-color: #5DD482;
+}
+
+.active {
+    background-color: #5DD482;
+}
+
+.button {
+    position: absolute;
+    bottom: 16px;
+    left: 115px;
+}
+
+.nav-bar {
+    width: 75px;
+    height: 88vh;
+    background-color: #E0FFF6;
+    border-radius: 30px;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.tooltips {
+    font-size: 15px;
+    margin-top: -2.5rem;
+    left: 90px;
+    min-width: 18.5vh;
+    background-color: #5DD482;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.4);
+    display: none;
+    cursor: auto;
+    z-index: 30;
+}
+
+.menu-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 12px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.profile {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img {
+    width: 60px;
+}
+
+.menu {
+    margin-top: 34px;
+}
+
+.menu ul li {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6px;
+    list-style: none;
+}
+
+.menu ul li a {
+    padding: 6px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    color: black;
+}
+
+.menu ul li a:hover {
+    background-color: #5DD482;
+    border-bottom: 1px solid #5DD482;
+}
+
+.menu ul li a:hover div.tooltips {
+    display: block;
+}
+
+.menu ul li a.actived {
+    background-color: #5DD482;
+    border-bottom: 0px solid rgb(0, 0, 0);
+}
+
+.button-menu {
+    margin-top: 35.5vh;
+}
+
+.out {
+    border-radius: 100px !important;
+    border-bottom: 0px solid rgb(0, 0, 0) !important;
+}
+
+.button-menu ul li a.out {
+    background-color: #F28F8F;
+}
+
+.ml-container {
+    margin-left: 10vw;
 }

@@ -8,17 +8,18 @@
         <nav class="navbar navbar-expand-lg bg-primary border border-3 border-dark fixed-top">
             <div class="container-fluid">
                 <a href="" class="navbar-brand text-secondary">
-                    Welcome !
-                </a>
-                <button class="ms-2 me-auto btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    Welcome ! , <a><span class="fs-5"><?php
+                                                if ($_SESSION['status'] == 'login') {
+                                                    echo $_SESSION["role_user"];
+                                                } else {
+                                                    echo "admin";
+                                                } ?></span></a>
                 </a>
 
             </div>
         </nav>
     </header>
-    <section id="sidebar" class="collapse show">
+    <section id="sidebar">
         <div class="container-fluid position-absolute">
             <div class="row flex-nowrap">
                 <div class="col-auto col-xl-2 px-sm-2 mb-auto bg-secondary">
@@ -27,12 +28,7 @@
                         <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class="navbar-brand d-flex align-items-center pb-3 mt-auto text-white text-decoration-none">
 
 
-                            <span class="fs-5"><?php
-                                                                    if ($_SESSION['status'] == 'login') {
-                                                                        echo $_SESSION["name"];
-                                                                    } else {
-                                                                        echo "admin";
-                                                                    } ?></span></a>
+                           
 
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                             <li class="nav-item">
@@ -101,13 +97,14 @@
 
                         <div class="container-fluid dropdown p-2 mb-4 bg-dark mt-auto">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                <i class="fs-4 bi bi-person-circle" alt="hugenerd" width="30" height="30" class="rounded-circle"></i>
                                 <span class="d-none d-sm-inline mx-1"><?php
                                                                         if ($_SESSION['status'] == 'login') {
-                                                                            echo $_SESSION["username"];
+                                                                            echo $_SESSION["nama_user"];
                                                                         } else {
                                                                             echo "admin";
                                                                         } ?></span>
+                                                                        
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                                 <li><a class="dropdown-item" href="#">New project...</a></li>
