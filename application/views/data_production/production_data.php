@@ -1,6 +1,5 @@
 <section id="production_data">
-    <div class="container d-flex col-sm p-3  bg-primary">
-        <div class="row">
+        <div class="row m-3">
             <div class="col-4">
                 <div class="card bg-secondary border-danger" style="width: 20rem;">
                     <div class="card-header border-warning text-primary">
@@ -16,8 +15,4 @@
             </div>
         </div>
     </div>
-</section>
-</div>
-</div>
-</div>
 </section>
