@@ -30,7 +30,7 @@
                             <a class="nav-link px-0 align-start text-light" href=""><i class="fs-4 bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Calculation</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>production/productionData" type="button"><i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Data Reading</span></a>
+                            <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>datareading/index" type="button"><i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Data Reading</span></a>
                         </li>
                         <li>
 

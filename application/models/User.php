@@ -2,18 +2,13 @@
 
 class User extends CI_Model
 {
-	public function getByUsername($usernameUser)
+	public function getUserByUsername($usernameUser)
 	{
-		$this->db->where('username_user', $usernameUser);
-		return $this->db->get('user');
-	}
-
-	public function getRolebyIdUser($usernameUser)
-	{
-		$this->db->where('username_user', $usernameUser);
-		$data = $this->db->get('user');
-		$role = $data->row();
-		$this->db->where('id_role', $role->role_id_role);
-		return $this->db->get('role');
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('username_user',$usernameUser);
+		$this->db->join('role', 'role.id_role = role_id_role');
+		$query = $this->db->get();
+		return $query;
 	}
 }

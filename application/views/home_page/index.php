@@ -1,8 +1,14 @@
 <body>
 
+  <?php if ($this->session->flashdata('flash')) : ?>
+    <script>alert('<?php echo $this->session->flashdata('flash') ?>');</script>
+  <?php $this->session->unset_userdata('flash');
+  endif; ?>
+
   <section id="loginPage" class="vh-100">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
+
         <div class="col-md-9 col-lg-6 col-xl-5">
           <img src="assets/img/draw2.webp" class="img-fluid" alt="Sample image">
         </div>
@@ -10,6 +16,7 @@
           <div class="shadow-lg p-3 mb-5 rounded-5 mt-4">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-center ">
               <h1 class="mb-3 text-light" style="font-size: 40px;">Login</h1>
+
             </div>
             <hr class="text-light mb-5">
             <!-- Pilih role -->

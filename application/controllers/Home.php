@@ -27,23 +27,28 @@ class Home extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $query = $this->User->getByUsername($username);
+        $query = $this->User->getUserByUsername($username);
         $user = $query->row();
 
-        $userRole = $this->User->getRolebyIdUser($username);
-        $role = $userRole->row();
-
-        if ($user->username_user != $username || $user->password_user != $password) {
-            redirect('home', " echo <script type='text/javascript'>alert('login gagal');</script>;");
-        } else {
-            $userdata = array(
-                'username_user' => $user->username_user,
-                'nama_user' => $user->nama_user,
-                'role_user' => $role->role_user,
-                'status' => 'login',
-            );
-            $this->session->set_userdata($userdata);
-            redirect('dashboard/dashboardSuperint', 'refresh');
+        if ($user == null) {
+            $this->session->set_flashdata('flash', 'Login Gagal\nUsername atau Password Salah');
+            redirect('home', 'refresh');
+        } else if ($user != null) {
+            if ($password != $user->password_user) {
+                $this->session->set_flashdata('flash', 'Login Gagal\nUsername atau Password Salah');
+                redirect('home', 'refresh');
+            } else {
+                $userdata = array(
+                    'username_user' => $user->username_user,
+                    'nama_user' => $user->nama_user,
+                    'email_user' => $user->email_user,
+                    'nohp_user' => $user->nohp_user,
+                    'role_user' => $user->role_user,
+                    'status' => 'login',
+                );
+                $this->session->set_userdata($userdata);
+                redirect('dashboard/dashboardSuperint', 'refresh');
+            }
         }
     }
 

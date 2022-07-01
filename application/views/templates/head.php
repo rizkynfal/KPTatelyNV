@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/node_modules/bootstrap/dist/css/bootstrap.css">
 
     <!-- bootstrap JS -->
-    <script src="<?= base_url() ?>assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>/assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- bootstrap icon -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/node_modules/bootstrap-icons/font/bootstrap-icons.css
