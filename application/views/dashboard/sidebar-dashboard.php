@@ -4,7 +4,7 @@
 
 <body class="wrapper">
 
-    <section id="sideMenu" class="collapse collapse-horizontal show">
+    <section id="sideMenu" class="collapse collapse-horizontal show" style="background: #212529;">
         <nav id="sidebar">
             <div class="sidebar-header text-center">
                 <h3>Welcome<br><span class="fs-5"><?php

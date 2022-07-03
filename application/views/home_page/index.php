@@ -1,4 +1,4 @@
-<body>
+<body class="home">
 
   <?php if ($this->session->flashdata('flash')) : ?>
     <script>alert('<?php echo $this->session->flashdata('flash') ?>');</script>

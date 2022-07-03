@@ -1,6 +1,6 @@
-<div class="collapse border border-dark rounded p-2" id="januariDataReading">
+<div class="border border-dark rounded p-2" id="">
     <div class="table-responsive ">
-        <h3 class="text-center text-secondary">WIP Januari</h3>
+        <h3 class="text-center text-secondary">WIP <?php echo $tanggal = date('d-M-Y') ?> </h3>
         <table id="example" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
 
             <thead>
