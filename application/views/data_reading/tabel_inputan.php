@@ -1,6 +1,6 @@
 <div class="border border-dark rounded p-2" id="">
     <div class="table-responsive ">
-        <h3 class="text-center text-secondary">WIP <?php echo $tanggal = date('d-M-Y') ?> </h3>
+        <h3 class="text-center text-secondary">WIP <?php echo $tanggal = date('d-F-Y') ?> </h3>
         <table id="example" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
 
             <thead>
@@ -46,31 +46,19 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 0;
-                while ($i <= 24) { ?>
-                    <tr>
+                <?php $i = 0;    ?>
+                <tr>
+                    <td scope="col"><?php echo $i ?></td>
+                    <td><?php echo $data_wip['time'] ?></td>
+                    <td><?php echo $data_wip['discharge_press'] ?></td>
+                    <td><?php echo $data_wip['water_line_press'] ?></td>
+                    <td><?php echo $data_wip['motor_freq'] ?></td>
+                    <td><?php echo $data_wip['motor_ampere'] ?></td>
+                    <td><?php echo $data_wip['pumped_water'] ?></td>
+                    <td><?php echo $data_wip['remaks'] ?></td>
+                <?php $i++;?>
+                </tr>
 
-                        <td scope="col"><?php echo $i ?></td>
-
-
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-                <?php $i++;
-                } ?>
             </tbody>
             <tfoot>
                 <tr>

@@ -1,7 +1,7 @@
 <div class="collapse border border-dark rounded p-2" id="januariDataReading">
     <div class="table-responsive ">
         <h3 class="text-center text-secondary">WIP Januari</h3>
-        <table id="example" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
+        <table id="table_wip_januari" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
 
             <thead>
                 <tr>
@@ -45,15 +45,22 @@
                     <th>bbls</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php $i = 0;
-                while ($i <= 24) { ?>
+            <?php
+            $id = 0;
+            $i = 0;
+            for ($i = 0; $i < 25; $i++) {
+                $id++;
+                $row['total_pompa_air'] = (float) 0.0; ?>
+
+                <tbody>
+
+
                     <tr>
 
                         <td scope="col"><?php echo $i ?></td>
 
 
-                        <td></td>
+                        <td><input type="numeric" name="total_pompa_air[]" value="<?php echo $row['total_pompa_air'] ?>;"></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -69,38 +76,40 @@
                         <td></td>
 
                     </tr>
-                <?php $i++;
-                } ?>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th scope="row">Total</th>
-                    <td class="table-primary"></td>
-                    <td colspan="4"></td>
-                    <td class="table-primary"></td>
-                    <td colspan="4"></td>
-                    <td class="table-primary"></td>
-                    <td></td>
-                    <td class="table-primary"></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row" rowspan="2">Average</th>
-                    <th>Pompa 1</th>
-                    <td class="table-primary"></td>
-                    <td>Bbls</td>
-                </tr>
-                <tr>
-                    <th>Pompa 2</th>
-                    <td class="table-primary"></td>
-                    <td>Bbls</td>
-                </tr>
-                <tr>
-                    <th scope="row" colspan="2">Total Average 2 Pompa</th>
-                    <td class="table-primary"></td>
-                    <td>Bbls</td>
-                </tr>
-            </tfoot>
+                <?php 
+            }
+
+                ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Total</th>
+                        <td class="table-primary"></td>
+                        <td colspan="4"></td>
+                        <td class="table-primary"></td>
+                        <td colspan="4"></td>
+                        <td class="table-primary"></td>
+                        <td></td>
+                        <td class="table-primary"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" rowspan="2">Average</th>
+                        <th>Pompa 1</th>
+                        <td class="table-primary"></td>
+                        <td>Bbls</td>
+                    </tr>
+                    <tr>
+                        <th>Pompa 2</th>
+                        <td class="table-primary"></td>
+                        <td>Bbls</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" colspan="2">Total Average 2 Pompa</th>
+                        <td class="table-primary" name="average_2_pompa" value=""></td>
+                        <td>Bbls</td>
+                    </tr>
+                </tfoot>
         </table>
     </div>
 </div>

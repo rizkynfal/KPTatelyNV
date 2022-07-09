@@ -48,38 +48,33 @@
             </div>
             <div class="col-md-3 mb-3">
                 <label for="inputDischargePressure" class="form-label">Discharge Pressure</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" name="inputDischargePressure" id="inputDischargePressure">
-                    <div class="input-group-text">psi</div>
-                </div>
+                <input type="text" class="form-control" name="inputDischargePressure" id="inputDischargePressure">
             </div>
             <div class="col-3 mb-3">
                 <label for="inputWaterLinePressure" class="form-label">Water Line Pressure</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" id="inputWaterLinePressure" name="inputWaterLinePressure">
-                    <div class="input-group-text">psi</div>
-                </div>
+
+                <input type="text" class="form-control" id="inputWaterLinePressure" name="inputWaterLinePressure">
+
+
             </div>
             <div class="col-3 mb-3">
                 <label for="inputMotorFrequency" class="form-label">Motor Frequency</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" name="inputMotorFrequency" id="inputMotorFrequency">
-                    <div class="input-group-text">hz</div>
-                </div>
+
+                <input type="text" class="form-control" name="inputMotorFrequency" id="inputMotorFrequency">
+
             </div>
             <div class="col-3 mb-3">
                 <label for="inputMotorAmpere" class="form-label">Motor Ampere</label>
                 <div class="input-group">
-                    <input type="number" class="form-control" name="inputMotorAmpere" id="inputMotorAmpere">
+                    <input type="text" class="form-control" name="inputMotorAmpere" id="inputMotorAmpere">
                     <div class="input-group-text">A</div>
                 </div>
             </div>
             <div class="col-3 mb-3">
                 <label for="inputPumpedWater" class="form-label">Pumped Water</label>
-                <div class="input-group">
-                    <input type="number" class="form-control" name="inputPumpedWater" id="inputPumpedWater">
-                    <div class="input-group-text">Bbls/hr</div>
-                </div>
+
+                <input type="text" class="form-control" name="inputPumpedWater" id="inputPumpedWater">
+
             </div>
             <div class="row">
                 <div class="d-grid gap-2 col-2 mx-auto">

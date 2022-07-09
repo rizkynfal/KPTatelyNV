@@ -55,10 +55,9 @@
         </div>
     </div>
 
-    <?php include '../dailyreports/application/views/data_reading/input_data_reading.php'; ?>
-    <?php include '../dailyreports/application/views/data_reading/show_data_reading.php'; ?>
+   
 </div>
 <div class="shadow p-4 rounded m-4">
-<?php include '../dailyreports/application/views/data_reading/tabel_inputan.php'; ?>
+
     
 </div>
