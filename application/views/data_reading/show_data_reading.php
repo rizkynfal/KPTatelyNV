@@ -1,7 +1,7 @@
-<div class="collapse border border-dark rounded p-2" id="januariDataReading">
-    <div class="table-responsive ">
+<div class="collapse p-2 mb-4" id="januariDataReading">
+    <div class="table-responsive rounded ">
         <h3 class="text-center text-secondary">WIP Januari</h3>
-        <table id="table_wip_januari" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
+        <table id="table_wip_januari " class="table table-bordered table-hover text-center border-dark rounded" style="font-size: 12px;">
 
             <thead>
                 <tr>

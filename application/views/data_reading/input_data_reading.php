@@ -1,5 +1,6 @@
 <div class="collapse" id="inputWip">
-    <div class="card card-body p-3">
+
+    <div class="card card-body p-3 mb-4">
         <form class="row" method="POST" action="<?= base_url() ?>datareading/inputDataWip">
             <div class="form-header fs-3 text-center">
                 Input Wip
@@ -9,19 +10,17 @@
                 <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
                                                                                                         if ($_SESSION['status'] == 'login') {
                                                                                                             echo $_SESSION["nama_user"];
-                                                                                                        } ?>" disabled>
+                                                                                                        } ?>" readonly>
             </div>
             <div class="col-sm-2 mb-3">
                 <label for="inputTanggal" class="form-label">Tanggal</label>
                 <?php date_default_timezone_set("Asia/Jakarta");
                 $tanggal = date("d-F-Y"); ?>
-                <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" disabled>
+                <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
             </div>
             <div class="col-sm-1 mb-3">
                 <label for="inputTime" class="form-label">Time</label>
-                <?php date_default_timezone_set("Asia/Jakarta");
-                $time = date("H:i:s"); ?>
-                <input type="text" name="inputTime" class="form-control" id="inputTime" disabled>
+                <input type="text" name="inputTime" class="form-control" id="inputTime" readonly>
             </div>
             <div class="col-3 mb-3">
                 <label for="inputBudi" class="form-label">Budi#</label>
@@ -74,6 +73,12 @@
                 <label for="inputPumpedWater" class="form-label">Pumped Water</label>
 
                 <input type="text" class="form-control" name="inputPumpedWater" id="inputPumpedWater">
+
+            </div>
+            <div class="col-3 mb-3">
+                <label for="inputPumpedWater" class="form-label">Well Head Pressure</label>
+
+                <input type="text" class="form-control" name="inputWhpWip" id="inputWhpWip">
 
             </div>
             <div class="row">

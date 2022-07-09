@@ -4,7 +4,7 @@
 
 <body class="wrapper">
 
-    <section id="sideMenu" class="collapse collapse-horizontal show" style="background: #212529;">
+    <section id="sideMenu" class="collapse collapse-horizontal show " style="background: #212529;">
         <nav id="sidebar">
             <div class="sidebar-header text-center">
                 <h3>Welcome<br><span class="fs-5"><?php
@@ -15,7 +15,7 @@
                                                     } ?></span></h3>
             </div>
 
-            <div class="d-flex flex-wrap text-white min-vh-100 sticky-top ms-2">
+            <div class="d-flex flex-wrap text-white min-vh-100  ms-2">
                 <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class="navbar-brand d-flex align-items-center pb-3 mt-auto text-white text-decoration-none">
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                         <li class="nav-item">
@@ -67,7 +67,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <div class="fixed-bottom " style="padding-right: 90%;">
+                        <div class="mt-auto">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fs-4 bi bi-person-circle" alt="hugenerd" width="30" height="30" class="rounded-circle"></i>
                                 <span class="d-none d-sm-inline mx-1"><?php

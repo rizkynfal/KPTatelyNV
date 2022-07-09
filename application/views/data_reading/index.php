@@ -1,4 +1,4 @@
-<div class="shadow p-4 rounded m-4">
+<div class="shadow p-4 rounded m-4" >
     <div class="row mb-4">
         <div class="col-md-5 border border-success rounded p-2 ms-auto">
             <h1 class="text-center text-dark mb-5">Input Data Reading</h1>
@@ -56,8 +56,4 @@
     </div>
 
    
-</div>
-<div class="shadow p-4 rounded m-4">
-
-    
 </div>
