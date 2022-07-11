@@ -1,12 +1,21 @@
-
 </body>
-<footer class="container-fluid bg-secondary fixed-bottom">
-    <div class=" flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 ">
-        <!-- Copyright -->
-        <div class="text-white mb-3 mb-md-0">
-            Copyright ©Tately NV. 2020. All rights reserved.
-        </div>
-    </div>
-</footer>
+<script type="text/javascript">
+    var inputTime = document.getElementById('inputTime')
+    var inputTimeStamp = document.getElementById('inputTimeStamp')
+   
 
-</html>
+    function updateTime() {
+        var d = new Date();
+
+        inputTime.value = d.toLocaleTimeString();
+
+    }
+
+    function timeUpdate() {
+        var d = new Date();
+        inputTimeStamp.value = d.toLocaleTimeString();
+
+    }
+    setInterval(updateTime, 1000);
+    setInterval(timeUpdate, 1000);
+</script>

@@ -1,8 +1,10 @@
-<div class="border border-dark rounded border-3 p-2 mb-2" id="">
-    <div class="table-responsive ">
-        <h3 class="text-center text-secondary">WIP <?php echo $tanggal = date('d-F-Y') ?> </h3>
-        <table id="example" class="table table-bordered table-hover text-center border-dark " style="font-size: 12px;">
+<section class="collapse show" id="tableWIP">
+    <div class="table-responsive">
 
+        <table class="table table-bordered table-hover text-center border-dark caption-top " style="font-size: 12px;">
+            <caption class=" text-start text-secondary fs-5 ms-4">
+                WIP <br><?php echo $tanggal = date('d-F-Y') ?>
+            </caption>
             <thead>
                 <tr>
                     <th rowspan="2" colspan="2">Production & Operation</th>
@@ -14,6 +16,7 @@
                 <tr>
                     <th rowspan="2">Well Head Pressure</th>
                     <th rowspan="3">Remaks</th>
+
                 </tr>
                 <tr>
                     <th rowspan="2">No.</th>
@@ -28,6 +31,7 @@
                     <th>Motor Frequency</th>
                     <th>Motor Ampere</th>
                     <th>Pumped Water</th>
+
                 </tr>
                 <tr>
                     <th>psi</th>
@@ -41,6 +45,7 @@
                     <th>A</th>
                     <th>bbls/hr</th>
                     <th>psi</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -95,10 +100,16 @@
                             }
                             $date[$i] = substr($data->time, 11);
                             $i++;
-                        } 
+                        }
                         $total = (int)(end($date)) - (int)($date[1]);
-                        $averagePompa1 = $totalpompa1 / $total;
-                        $averagePompa2 = $totalpompa2/ $total;
+                        if ($total == 0) {
+                            $averagePompa1 = $totalpompa1;
+                            $averagePompa2 = $totalpompa2;
+                        } else {
+                            $averagePompa1 = $totalpompa1 / $total;
+                            $averagePompa2 = $totalpompa2 / $total;
+                        }
+
                         ?>
                         </tr>
 
@@ -114,28 +125,26 @@
                     <td class="table-primary"><?php echo $totalpompa1 ?> bbls</td>
                     <td colspan="4"></td>
                     <td class="table-primary"><?php echo $totalpompa2 ?> bbls</td>
-                    <td></td>
-
-                    <td></td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr>
                     <th scope="row" rowspan="2">Average</th>
                     <th>Pompa 1</th>
                     <td class="table-primary"><?php echo $averagePompa1 ?></td>
                     <td>Bbls</td>
-                    <td class="table-secondary" colspan="10"></td>
+                    <td class="table-secondary" colspan="11"></td>
                 </tr>
                 <tr>
                     <th>Pompa 2</th>
                     <td class="table-primary"><?php echo $averagePompa2 ?></td>
                     <td>Bbls</td>
-                    <td class="table-secondary" colspan="10"></td>
+                    <td class="table-secondary" colspan="11"></td>
                 </tr>
                 <tr>
                     <th scope="row" colspan="2">Total Average 2 Pompa</th>
                     <td class="table-primary"><?php echo $averagePompa1 + $averagePompa2 ?></td>
                     <td>Bbls</td>
-                    <td class="table-secondary" colspan="10"></td>
+                    <td class="table-secondary" colspan="11"></td>
                 </tr>
             <?php
 
@@ -143,4 +152,4 @@
             </tfoot>
         </table>
     </div>
-</div>
+</section>

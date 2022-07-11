@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/font.css">
+    <script type = "text/javascript" src="/assets/js/javascript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title><?php echo $judul ?></title>
 
