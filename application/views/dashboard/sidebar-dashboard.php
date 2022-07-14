@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>production/productionData" type="button"><i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Data</span></a>
+                            <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>productiondata/index" type="button"><i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Data</span></a>
                         </li>
                         <li>
                             <a class="nav-link px-0 align-start text-light" href="<?= base_url()?>producalcul/index"><i class="fs-4 bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Calculation</span></a>

@@ -1,148 +1,104 @@
+<?php if ($this->session->flashdata('flash')) : ?>
+    <script>
+        alert('<?php echo $this->session->flashdata('flash') ?>');
+    </script>
+<?php $this->session->unset_userdata('flash');
+endif; ?>
 <div class="collapse" id="inputProdCal">
-    <div class="row rounded m-2 ">
+    <div class="row">
+        <div class="col-sm-3 mb-3">
+            <label for="namaReporter" class="form-label">Nama Reporter</label>
+            <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
+                                                                                                    if ($_SESSION['status'] == 'login') {
+                                                                                                        echo $_SESSION["nama_user"];
+                                                                                                    } ?>" readonly>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <label for="inputTanggal" class="form-label">Tanggal</label>
+            <?php date_default_timezone_set("Asia/Jakarta");
+            $tanggal = date("d-F-Y"); ?>
+            <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
+        </div>
+        <div class="col-sm-3  mb-3">
+            <label for="inputTime" class="form-label">Time</label>
+            <input type="text" name="inputTime" class="form-control" id="inputTime" readonly>
+        </div>
+    </div>
+    <div class="row rounded mb-3">
         <div class="col">
             <div class="card card-body p-3 mb-4">
-                <form class="row" method="POST" action="<?= base_url() ?>datareading/inputDataWip">
+                <form id="testTankAform" class="row" method="POST" action="<?= base_url() ?>producalcul/inputTank">
                     <div class="form-header fs-3 text-center">
-                        Input Production Test Tank A
+                        Input Production Tank
                     </div>
-                    <div class="col-3 mb-3">
-                        <label for="namaReporter" class="form-label">Nama Reporter</label>
-                        <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
-                                                                                                                if ($_SESSION['status'] == 'login') {
-                                                                                                                    echo $_SESSION["nama_user"];
-                                                                                                                } ?>" readonly>
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="inputTanggal" class="form-label">Tanggal</label>
-                        <?php date_default_timezone_set("Asia/Jakarta");
-                        $tanggal = date("d-F-Y"); ?>
-                        <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
-                    </div>
-                    <div class="col-sm-3  mb-3">
-                        <label for="inputTime" class="form-label">Time</label>
-                        <input type="text" name="inputTime" class="form-control" id="inputTime" readonly>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <p class="text-dark"><b></b></p>
-                        <label for="inputDischargePressure" class="form-label">Discharge Pressure</label>
-                        <input placeholder="0" type="text" class="form-control" name="inputDischargePressure" id="inputDischargePressure">
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputWaterLinePressure" class="form-label">Water Line Pressure</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="namaTank" class="form-label">Nama Storage Tank</label><br>
+                            <select class="p-2 rounded" id="namaTank" name="namaTank">
+                                <option class="form-control col-auto " value="Tank A">Tank A</option>
+                                <option class="form-control col-auto " value="Tank B">Tank B</option>
+                                <option class="form-control col-auto " value="Tank 1">Tank 1</option>
+                                <option class="form-control col-auto " value="Tank 2">Tank 2</option>
+                                <option class="form-control col-auto " value="Tank 3">Tank 3</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <label for="inputBudi" class="form-label">Budi#</label>
 
-                        <input placeholder="0" type="text" class="form-control" id="inputWaterLinePressure" name="inputWaterLinePressure">
+                            <select class="p-2 rounded " id="inputBudi" name="inputBudi" style="width: 100% ;">
+                                <option value=" "></option>
+                                <?php foreach ($budi as $data) {
+                                ?>
+                                    <option class="form-control col-auto " value="<?php echo $data['nama_budi'] ?>"> <?php echo $data['nama_budi'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <p class="text-center text-dark fw-bold fs-5">Production</p>
+                        </div>
+                        <div class="col-3">
+                            <label for="inputOilCmProd" class="form-label">Oil in Cm</label>
+                            <input placeholder="0" form="testTankAform" type="text" class="form-control" name="inputOilCmProd" id="inputOilCmProd">
+                        </div>
+                        <div class="col-3 mb-3">
+                            <label for="inputOilBblsProd" class="form-label">Oil in Bbls</label>
+                            <input placeholder="0" type="text" form="testTankAform" class="form-control" id="inputOilBblsProd" name="inputOilBblsProd">
 
 
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputMotorFrequency" class="form-label">Motor Frequency</label>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <label for="inputWaterCmProd" class="form-label">Water in Cm</label>
+                            <input placeholder="0" type="text" form="testTankAform" class="form-control" name="inputWaterCmProd" id="inputWaterCmProd">
 
-                        <input placeholder="0" type="text" class="form-control" name="inputMotorFrequency" id="inputMotorFrequency">
+                        </div>
+                        <div class="col-3 mb-3">
+                            <label for="inputWaterBblsProd" class="form-label">Water in Bbls</label>
+                            <input placeholder="0" type="text" form="testTankAform" class="form-control" name="inputWaterBblsProd" id="inputWaterBblsProd">
 
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputMotorAmpere" class="form-label">Motor Ampere</label>
-                        <div class="input-group">
-                            <input placeholder="0" type="text" class="form-control" name="inputMotorAmpere" id="inputMotorAmpere">
-                            <div class="input-group-text">A</div>
                         </div>
                     </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputPumpedWater" class="form-label">Pumped Water</label>
-
-                        <input placeholder="0" type="text" class="form-control" name="inputPumpedWater" id="inputPumpedWater">
-
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputPumpedWater" class="form-label">Well Head Pressure</label>
-
-                        <input placeholder="0" type="text" class="form-control" name="inputWhpWip" id="inputWhpWip">
-
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center text-dark fw-bold fs-5">Pump</p>
+                        </div>
+                        <div class="col-4">
+                            <label for="inputOilBblsPump" class="form-label">Oil</label>
+                            <input placeholder="0" form="testTankAform" type="text" class="form-control" name="inputOilBblsPump" id="inputOilBblsPump">
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label for="inputWaterBblsPump" class="form-label">Water</label>
+                            <input placeholder="0" type="text" form="testTankAform" class="form-control" id="inputWaterBblsPump" name="inputWaterBblsPump">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="d-grid gap-2 col-2 ">
-
-                            <button type="submit" class="btn btn-success p-3">Simpan</button>
+                            <button type="submit" form="testTankAform" class="btn btn-success p-3">Simpan</button>
                             <button class="btn btn-danger p-3" type="button" data-bs-toggle="collapse" data-bs-target="#inputWip" aria-expanded="false" aria-controls="inputWip">Batal</button>
                         </div>
                     </div>
-
                 </form>
-
             </div>
         </div>
-        <div class="col">
-            <div class="card card-body p-3 mb-4">
-                <form class="row" method="POST" action="<?= base_url() ?>datareading/inputDataWip">
-                    <div class="form-header fs-3 text-center">
-                        Input Production Test Tank B
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="namaReporter" class="form-label">Nama Reporter</label>
-                        <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
-                                                                                                                if ($_SESSION['status'] == 'login') {
-                                                                                                                    echo $_SESSION["nama_user"];
-                                                                                                                } ?>" readonly>
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="inputTanggal" class="form-label">Tanggal</label>
-                        <?php date_default_timezone_set("Asia/Jakarta");
-                        $tanggal = date("d-F-Y"); ?>
-                        <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
-                    </div>
-                    <div class="col-sm-3  mb-3">
-                        <label for="inputTimeStamp" class="form-label">Time</label>
-                        <input type="text" name="inputTimeStamp" class="form-control" id="inputTimeStamp" readonly>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <p class="text-dark"><b></b></p>
-                        <label for="inputDischargePressure" class="form-label">Discharge Pressure</label>
-                        <input placeholder="0" type="text" class="form-control" name="inputDischargePressure" id="inputDischargePressure">
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputWaterLinePressure" class="form-label">Water Line Pressure</label>
 
-                        <input placeholder="0" type="text" class="form-control" id="inputWaterLinePressure" name="inputWaterLinePressure">
-
-
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputMotorFrequency" class="form-label">Motor Frequency</label>
-
-                        <input placeholder="0" type="text" class="form-control" name="inputMotorFrequency" id="inputMotorFrequency">
-
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputMotorAmpere" class="form-label">Motor Ampere</label>
-                        <div class="input-group">
-                            <input placeholder="0" type="text" class="form-control" name="inputMotorAmpere" id="inputMotorAmpere">
-                            <div class="input-group-text">A</div>
-                        </div>
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputPumpedWater" class="form-label">Pumped Water</label>
-
-                        <input placeholder="0" type="text" class="form-control" name="inputPumpedWater" id="inputPumpedWater">
-
-                    </div>
-                    <div class="col-3 mb-3">
-                        <label for="inputPumpedWater" class="form-label">Well Head Pressure</label>
-
-                        <input placeholder="0" type="text" class="form-control" name="inputWhpWip" id="inputWhpWip">
-
-                    </div>
-                    <div class="row">
-                        <div class="d-grid gap-2 col-2 ">
-
-                            <button type="submit" class="btn btn-success p-3">Simpan</button>
-                            <button class="btn btn-danger p-3" type="button" data-bs-toggle="collapse" data-bs-target="#inputWip" aria-expanded="false" aria-controls="inputWip">Batal</button>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
     </div>
 </div>
