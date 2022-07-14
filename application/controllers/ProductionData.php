@@ -1,6 +1,6 @@
 <?php
 
-class Production extends CI_Controller
+class ProductionData extends CI_Controller
 {
     public function productionData()
     {

@@ -1,4 +1,4 @@
-<div class="collapse col" id="inputWip">
+<div class="collapse col " id="inputWip">
 
     <div class="card card-body p-3 mb-4">
         <form class="row" method="POST" action="<?= base_url() ?>datareading/inputDataWip">

@@ -24,4 +24,4 @@
         </div>
     </div>
 </div>
-<div class="row shadow p-2 rounded m-2 d-flex align-items-stretch">
+<div class="row shadow p-2 rounded m-2 ">
