@@ -12,7 +12,7 @@
                     <option>---</option>
                     <?php foreach ($budi as $data) {
                     ?>
-                        <option class="form-control col-auto " value="<?php echo $data['id_budi'] ?>"> <?php echo $data['nama_budi'] ?></option>
+                        <option class="form-control col-auto " value="<?php echo $data->id_budi?>"> <?php echo $data->nama_budi ?></option>
                     <?php } ?>
                 </select>
             </div>

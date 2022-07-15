@@ -8,7 +8,7 @@ class StorageTank extends CI_Model
   }
   public function getDataStorageTank()
   {
-    $this->db->order_by('time', 'DESC');
+    $this->db->order_by('time', 'ASC');
     return $this->db->get('storage_tank');
   }
   public function getDataStorageTankbyTankName($tankname)

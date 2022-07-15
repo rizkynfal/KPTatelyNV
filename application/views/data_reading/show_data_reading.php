@@ -6,16 +6,13 @@
             <?php foreach ($budi as $data) {
             ?>
 
-                <option type="submit" class="form-control text-center" id="namaBudi" name="namaBudi" value="<?php echo $data['id_budi'] ?>"><?php echo $data['nama_budi'] ?></option>
+                <option type="submit" class="form-control text-center" id="namaBudi" name="namaBudi" value="<?php echo $data->id_budi ?>"><?php echo $data->nama_budi ?></option>
             <?php } ?>
         </select>
         <div class="col-4 col-sm-4">
             <button type="submit" class="btn btn-dark p-2">Cari</button>
         </div>
     </form>
-
-
-
     <?php
     if ($this->input->post('namaBudi') != null) {
         $namaBudi = $this->input->post('namaBudi');
@@ -32,7 +29,9 @@
                                 <th rowspan="3">Time</th>
                                 <th colspan="30" class="fs-5">
                                     <?php
-                                    echo $data->nama_budi ?>
+                                    if($data->budi_id_budi == $budi){ 
+                                        echo $budi->nama_budi;
+                                    }?>
                                 </th>
                             </tr>
                             <tr>

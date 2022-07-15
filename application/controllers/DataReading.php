@@ -18,7 +18,7 @@ class DataReading extends CI_Controller
     public function index()
     {
         $data['judul'] = "Data Reading";
-        $data['budi'] = $this->Budi->getDataBudi()->result_array();
+        $data['budi'] = $this->Budi->getDataBudi()->result();
         $data['tabel_wip'] = $this->DataReadingModel->getDataWip()->result();
         $data['tabel_data_reading'] = $this->DataReadingModel->getDataReading()->result();
         $data['user'] = $this->User->getUser()->result();
@@ -36,7 +36,7 @@ class DataReading extends CI_Controller
     {
         $budi = $this->input->post('namaBudi');
         $data['judul'] = "Data Reading";
-        $data['budi'] = $this->Budi->getDataBudi()->result_array();
+        $data['budi'] = $this->Budi->getDataBudi()->result();
         $data['tabel_wip'] = $this->DataReadingModel->getDataWip()->result();
         $data['tabel_data_reading'] = $this->DataReadingModel->getDataReadingBybudi($budi)->result();
         $data['user'] = $this->User->getUser()->result();

@@ -5,7 +5,7 @@ class DataReadingModel extends CI_Model
     public function getDataWip()
     {
         
-        $this->db->order_by('time', 'DESC');
+        $this->db->order_by('time', 'ASC');
         return $this->db->get('wip');
     }
     public function inputWip($data)
@@ -20,7 +20,7 @@ class DataReadingModel extends CI_Model
 
     public function getDataReading()
     {
-        $this->db->order_by('time', 'DESC');
+        $this->db->order_by('time', 'ASC');
         return $this->db->get('data_reading');
     }
     public function getDataReadingBybudi($budi)
