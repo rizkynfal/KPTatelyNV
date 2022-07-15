@@ -21,6 +21,7 @@ class DataReading extends CI_Controller
         $data['budi'] = $this->Budi->getDataBudi()->result_array();
         $data['tabel_wip'] = $this->DataReadingModel->getDataWip()->result();
         $data['tabel_data_reading'] = $this->DataReadingModel->getDataReading()->result();
+        $data['user'] = $this->User->getUser()->result();
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
@@ -38,6 +39,7 @@ class DataReading extends CI_Controller
         $data['budi'] = $this->Budi->getDataBudi()->result_array();
         $data['tabel_wip'] = $this->DataReadingModel->getDataWip()->result();
         $data['tabel_data_reading'] = $this->DataReadingModel->getDataReadingBybudi($budi)->result();
+        $data['user'] = $this->User->getUser()->result();
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
@@ -65,7 +67,6 @@ class DataReading extends CI_Controller
         $remaks = $this->input->post('inputRemaks');
         $whp_wip = $this->input->post('inputWhpWip');
         $budi_id_budi = $this->input->post('inputBudi');
-        // $budi_id_budi = $this->Budi->getBudibyName($nama_budi);
 
         $data = array(
             'time' => $time,

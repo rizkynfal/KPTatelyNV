@@ -1,7 +1,7 @@
 <section class="collapse show " id="tableDataReading">
 
-    <form class="row ms-auto" action="<?= base_url() ?>datareading/getDataReading" method="post">
-        <div class="fs-5 ">Cari Budi</div>
+    <form class="row ms-auto" action="<?= base_url() ?>showdatareading" method="post">
+        <div class="fs-5 ">Cari Data Reading Budi</div>
         <select class="p-2 rounded mb-3 col-6 col-sm-4" id="namaBudiudi" name="namaBudi">
             <?php foreach ($budi as $data) {
             ?>
@@ -22,8 +22,6 @@
         $date = false;
         foreach ($tabel_data_reading as $data) {
             if ($data->tanggal_data_reading != $date) { ?>
-
-
                 <?php $date = $data->tanggal_data_reading; ?>
                 <div class="table-responsive ">
 
@@ -34,11 +32,7 @@
                                 <th rowspan="3">Time</th>
                                 <th colspan="30" class="fs-5">
                                     <?php
-                                    foreach ($budi as $budi2) {
-                                        if ($data->budi_id_budi == $budi2['id_budi']) {
-                                            echo $budi2['nama_budi'];
-                                        }
-                                    } ?>
+                                    echo $data->nama_budi ?>
                                 </th>
                             </tr>
                             <tr>
@@ -144,13 +138,10 @@
                         </tbody>
 
                 <?php    }
+        } else {
+            echo '<div class="table-responsive "><table class="table table-bordered table-hover text-center border-dark caption-top" style="font-size: 12px;"><th class="fs-3 bg-danger">Cari Data Budi Yang Ingin Dicari</th> </table>';
         }  ?>
 
                     </table>
                 </div>
-
-
-
-
-
 </section>

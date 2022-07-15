@@ -8,8 +8,7 @@ class StorageTank extends CI_Model
   }
   public function getDataStorageTank()
   {
-    date_default_timezone_set("Asia/Jakarta");
-    $this->db->order_by('time', 'ASC');
+    $this->db->order_by('time', 'DESC');
     return $this->db->get('storage_tank');
   }
   public function getDataStorageTankbyTankName($tankname)

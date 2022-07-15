@@ -4,10 +4,8 @@ class DataReadingModel extends CI_Model
 {
     public function getDataWip()
     {
-        date_default_timezone_set("Asia/Jakarta");
-        $date = date('d-F-Y');
-        $this->db->where('tanggal_input', $date);
-        $this->db->order_by('time', 'ASC');
+        
+        $this->db->order_by('time', 'DESC');
         return $this->db->get('wip');
     }
     public function inputWip($data)
@@ -22,7 +20,7 @@ class DataReadingModel extends CI_Model
 
     public function getDataReading()
     {
-        $this->db->order_by('time', 'ASC');
+        $this->db->order_by('time', 'DESC');
         return $this->db->get('data_reading');
     }
     public function getDataReadingBybudi($budi)
