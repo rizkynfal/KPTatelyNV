@@ -17,22 +17,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/node_modules/bootstrap-icons/font/bootstrap-icons.css
     ">
     <!-- init time -->
-    <?php date_default_timezone_set("Asia/Jakarta"); ?>
+    <?php date_default_timezone_set("Asia/Jakarta");
+    ?>
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/font.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        var selectTank = document.getElementById('namaTank')
-        var budiPick = document.getElementById('budiPicker')
-
-
-        $(document).ready(function() {
-            selectTank.click(function() {
-                budiPick.show();
-            });
-        });
-    </script>
     <title><?php echo $judul ?></title>
 
 </head>

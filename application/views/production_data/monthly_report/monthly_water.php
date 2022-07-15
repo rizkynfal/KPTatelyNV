@@ -1,4 +1,4 @@
-<section class="monthly-gas-table">
+<section id="monthly-water-table" class="collapse show col">
     <div class="d-flex mt-5 container-fluid" style="background-color: #FFF !important; z-index: 5;">
         <div class="p-5 col-md-10 shadow mb-5" style="border-radius: 30px;">
             <div class="row">
@@ -6,7 +6,7 @@
                     <div class="panel panel-default">
                         <a class="btn btn-primary" href="<?= base_url('production/productionData') ?>" role="button">Kembali</a>
                         <div class="panel-heading text-secondary text-center">
-                            MONTHLY PRODUCED GAS
+                            MONTHLY PRODUCED Water
                         </div>
                         <div class="panel-body m-4">
 
@@ -14,72 +14,22 @@
                                 <table id="example" class="table table-bordered table-hover text-center border-dark">
 
                                     <tr>
-                                        <th>Date </th>
-                                        <th colspan="2">Januari</th>
-                                        <th colspan="2">Februari</th>
-                                        <th colspan="2">Maret</th>
-                                        <th colspan="2">April</th>
-                                        <th colspan="2">Mei</th>
-                                        <th colspan="2">Juni</th>
-                                        <th colspan="2">Juli</th>
-                                        <th colspan="2">Agustus</th>
-                                        <th colspan="2">September</th>
-                                        <th colspan="2">Oktober</th>
-                                        <th colspan="2">November</th>
-                                        <th colspan="2">Desember</th>
+                                        <th rowspan="2">Date </th>
+                                        <?php
+                                        $bulan = [1 => "Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+                                        for ($i = 1; $i <= 12; $i++) {
+                                            echo "<th colspan='2'>$bulan[$i]</th>";
+                                        }
+                                        ?>
                                     </tr>
                                     <tr>
-                                        <td ></td>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
-                                        <th scope="row">Produced</th>
-                                        <th scope="row">Brine</th>
+                                        <?php for ($i = 0; $i < 12; $i++) {
+                                            echo '<th scope="row">Produced</th>
+                                            <th scope="row">Brine</th>';
+                                        } ?>
+                                        
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
                                         <td></td>
                                     </tr>
                                     </tbody>

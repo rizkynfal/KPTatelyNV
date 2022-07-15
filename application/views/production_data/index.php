@@ -1,16 +1,34 @@
 <section id="production_data">
-        <div class="row m-3">
-            <div class="col-4">
-                <div class="card bg-secondary border-danger" style="width: 20rem;">
-                    <div class="card-header border-warning text-primary">
-                        MONTHLY PRODUCED TRACKING
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="bg-secondary list-group-item "><a type="button" class="btn btn-outline-secondary text-primary" href="<?= base_url('production/monthlyOilProduced') ?>">Monthly Oil Production Data</a></li>
-                        <li class="bg-secondary list-group-item"><a type="button" class="btn btn-outline-secondary text-primary" href="<?= base_url('production/monthlyGasProduced') ?>">Monthly Gas Production Data</a></li>
-                        <li class="bg-secondary list-group-item"><a type="button" class="btn btn-outline-secondary text-primary text-start" href="<?= base_url('production/monthlyTruckoilProduced') ?>">Monthly Truck to Ramba and Tomino Production Data</a></li>
-                        <li class="bg-secondary list-group-item"><a type="button" class="btn btn-outline-secondary text-primary" href="<?= base_url('production/monthlyWaterProduced') ?>">Monthly Water Production Data</a></li>
-                    </ul>
+    <div class="shadow rounded ">
+        <div class="row  justify-content-start ">
+            <h5 class="text-start text-dark ">Monthly Production Data Report</h5>
+            <div class="col-2 border border-success rounded text-center"> <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#monthly-gas-table" aria-expanded="false" aria-controls="monthly-gas-table">
+                    Monthly Gas Production Data
+                </button>
+
+            </div>
+
+            <div class="col-2 border border-success rounded text-center p-1">
+
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#monthly-oil-table" aria-expanded="false" aria-controls="monthly-oil-table">
+                    Monthly Oil Production Data
+                </button>
+
+            </div>
+            <div class="row  justify-content-start ">
+                <div class="col-2 border border-success rounded text-center p-1">
+
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#monthly-trucked-table" aria-expanded="false" aria-controls="monthly-trucked-table">
+                        Monthly Truck to Ramba and Tomino Production Data
+                    </button>
+
+                </div>
+
+                <div class="col-2 border border-success rounded text-center p-1">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#monthly-water-table" aria-expanded="false" aria-controls="monthly-water-table">
+                        Monthly Water Production Data
+                    </button>
+
                 </div>
             </div>
         </div>

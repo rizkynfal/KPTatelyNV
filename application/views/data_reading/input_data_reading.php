@@ -123,8 +123,8 @@
                     <div class="text-secondary">PRODUCTION HEADER MANIFOLD-2</div>
                     <div class="row justify-content-center border-dark p-2 border rounded bg-info ms-2">
                         <div class="col-sm-4 me-3">
-                            <label for="pressProd2tManif" class="form-label">PRESS</label>
-                            <input placeholder="0" type="text" class="form-control" name="pressProd2tManif" id="pressProd2tManif">
+                            <label for="pressProd2Manif" class="form-label">PRESS</label>
+                            <input placeholder="0" type="text" class="form-control" name="pressProd2Manif" id="pressProd2Manif">
                         </div>
                         <div class="col-sm-4">
                             <label for="tempProd2Manif" class="form-label">TEMP</label>

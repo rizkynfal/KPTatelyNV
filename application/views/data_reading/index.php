@@ -36,7 +36,7 @@
         <label for="inputTanggal" class="form-label">Tanggal</label>
         <?php date_default_timezone_set("Asia/Jakarta");
         $tanggal = date("d-F-Y"); ?>
-        <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" form="" value="<?php echo $tanggal ?>" readonly>
+        <input type="text" name="inputTanggal" class="form-control" id="inputTanggal"value="<?php echo $tanggal ?>" readonly>
     </div>
     <div class="col-sm-3  mb-3">
         <label for="inputTime" class="form-label">Time</label>

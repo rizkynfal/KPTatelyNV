@@ -22,14 +22,13 @@ class DataReadingModel extends CI_Model
 
     public function getDataReading()
     {
-        date_default_timezone_set("Asia/Jakarta");
-        $date = date('d-F-Y');
-        $this->db->where('tanggal_data_reading', $date);
         $this->db->order_by('time', 'ASC');
         return $this->db->get('data_reading');
     }
-    public function getDataReadingBybudi()
+    public function getDataReadingBybudi($budi)
     {
-
+        $this->db->where('budi_id_budi', $budi);
+        $this->db->order_by('tanggal_data_reading', 'DESC');
+        return $this->db->get('data_reading');
     }
 }

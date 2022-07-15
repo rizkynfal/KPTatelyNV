@@ -1,4 +1,4 @@
-<section class="monthly-gas-table">
+<section id="monthly-trucked-table" class="collapse show col">
     <div class="d-flex mt-5 container-fluid" style="background-color: #FFF !important; z-index: 5;">
         <div class="p-5 col-md-10 shadow mb-5" style="border-radius: 30px;">
             <div class="row">

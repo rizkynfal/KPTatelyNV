@@ -31,6 +31,23 @@ class DataReading extends CI_Controller
         $this->load->view('data_reading/show_data_reading');
         $this->load->view('templates/footer');
     }
+    public function getDataReading()
+    {
+        $budi = $this->input->post('namaBudi');
+        $data['judul'] = "Data Reading";
+        $data['budi'] = $this->Budi->getDataBudi()->result_array();
+        $data['tabel_wip'] = $this->DataReadingModel->getDataWip()->result();
+        $data['tabel_data_reading'] = $this->DataReadingModel->getDataReadingBybudi($budi)->result();
+        $this->load->view('templates/head', $data);
+        $this->load->view('dashboard/sidebar-dashboard');
+        $this->load->view('dashboard/index');
+        $this->load->view('data_reading/index', $data);
+        $this->load->view('data_reading/input_wip', $data);
+        $this->load->view('data_reading/input_data_reading', $data);
+        $this->load->view('data_reading/tabel_inputan_wip');
+        $this->load->view('data_reading/show_data_reading');
+        $this->load->view('templates/footer');
+    }
 
     public function inputDataWip()
     {
@@ -78,7 +95,7 @@ class DataReading extends CI_Controller
         date_default_timezone_set("Asia/Jakarta");
         $date = new DateTime();
         $time = $date->format('Y-m-d H:i:s');
-        $tanggal_input = $this->input->post('inputTanggal');
+        $tanggal = $date->format('d-F-Y');
         $chp_data_reading = $this->input->post('inputChp');
         $thp_data_reading = $this->input->post('inputThp');
         $wht_data_reading = $this->input->post('inputWht');
@@ -112,7 +129,7 @@ class DataReading extends CI_Controller
         $budi_id_budi = $this->input->post('inputBudi');
         $data = array(
             'time' => $time,
-            'tanggal_data_reading' => $tanggal_input,
+            'tanggal_data_reading' => $tanggal,
             'chp_data_reading' => $chp_data_reading,
             'thp_data_reading' => $thp_data_reading,
             'wht_data_reading' =>  $wht_data_reading,

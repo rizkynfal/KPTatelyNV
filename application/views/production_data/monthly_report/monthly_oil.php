@@ -1,4 +1,4 @@
-<section class="monthly-oil-table">
+<section id="monthly-oil-table" class="collapse show col">
     <div class="d-flex mt-5 container-fluid" style="background-color: #FFF !important; z-index: 5;">
         <div class="p-5 col-md-10 shadow mb-5" style="border-radius: 30px;">
             <div class="row">
@@ -8,34 +8,14 @@
                         <h3 class="text-center text-secondary">MONTHLY PRODUCED OIL</h3>
                         <table id="example" class="table table-bordered table-hover text-center border-dark">
                             <tr>
-                                <td>Date </td>
-                                <th scope="col">Januari</th>
-                                <th scope="col">Februari</th>
-                                <th scope="col">Maret</th>
-                                <th scope="col">April</th>
-                                <th scope="col">Mei</th>
-                                <th scope="col">Juni</th>
-                                <th scope="col">Juli</th>
-                                <th scope="col">Agustus</th>
-                                <th scope="col">September</th>
-                                <th scope="col">Oktober</th>
-                                <th scope="col">November</th>
-                                <th scope="col">Desember</th>
+                                <th rowspan="2">Date </th>
+                                <?php $bulan = [1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+                                for ($i = 1; $i <= 12; $i++) {
+                                    echo '<th>' . $bulan[$i] . '</th>';
+                                } ?>
                             </tr>
                             <tr>
-                                <th scope="col"></th>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
-                                <td>tes</td>
+<td></td>
                             </tr>
                             </tbody>
                         </table>

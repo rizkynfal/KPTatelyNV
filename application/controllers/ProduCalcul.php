@@ -67,6 +67,22 @@ class ProduCalcul extends CI_Controller
                 $this->StorageTank->inputStorageTank($data);
                 redirect('ProduCalcul/index');
             }
+        } else {
+            $data = array(
+                'time' => $time,
+                'nama_tank' => $nama_tank,
+                'oil_cm_production' => $oil_cm_production,
+                'oil_bbls_production' => $oil_bbls_production,
+                'water_cm_production' => $water_cm_production,
+                'water_bbls_production' => $water_bbls_production,
+                'oil_bbls_pump' => $oil_bbls_pump,
+                'water_bbls_pump' => $water_bbls_pump,
+                'nama_budi' => $budi,
+                'user_id_user' => $user->id_user,
+                'user_role_id_role' => $user->role_id_role
+            );
+            $this->StorageTank->inputStorageTank($data);
+            redirect('ProduCalcul/index');
         }
     }
 }

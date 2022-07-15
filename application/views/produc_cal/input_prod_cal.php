@@ -32,7 +32,7 @@ endif; ?>
                         Input Production Tank
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-2">
                             <label for="namaTank" class="form-label">Nama Storage Tank</label><br>
                             <select class="p-2 rounded" id="namaTank" name="namaTank">
                                 <option class="form-control col-auto " value="Tank A">Tank A</option>
@@ -52,7 +52,21 @@ endif; ?>
                                     <option class="form-control col-auto " value="<?php echo $data['nama_budi'] ?>"> <?php echo $data['nama_budi'] ?></option>
                                 <?php } ?>
                             </select>
+
                         </div>
+                        <!-- <div class="col-3">
+                            <label for="inputBulan" class="form-label">Bulan</label>
+                            <select name="month" id="month" class="p-2 rounded ">
+                                <?php
+                                for ($i = 0; $i < 12; $i++) {
+                                    $time = strtotime(sprintf('%d months', $i));
+                                    $label = date('F', $time);
+                                    $value = date('n', $time);
+                                    echo "<option class='form-control col-auto ' value='$value'>$label</option>";
+                                }
+                                ?>
+                            </select>
+                        </div> -->
                         <div class="col-12">
                             <p class="text-center text-dark fw-bold fs-5">Production</p>
                         </div>

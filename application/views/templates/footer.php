@@ -6,14 +6,7 @@
     var inputOilBbls = document.getElementById('inputOilBblsProd')
     var inputWatercm = document.getElementById('inputWaterCmProd')
     var inputWaterbbl = document.getElementById('inputWaterBblsProd')
-    var selectTank = document.getElementById('namaTank')
-    var budiPick = document.getElementById('budiPicker')
-    $(document).ready(function() {
-        selectTank.click(function() {
-            budiPick.show();
-        });
-    });
-
+   
 
     function updateTime() {
         var d = new Date();

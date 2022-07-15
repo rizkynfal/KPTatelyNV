@@ -27,6 +27,8 @@
                                                                                 if ($data->nama_tank == "Tank A" &&  $p->format('Y-m-d') == $time) {
                                                                                     $namabudi[$i] = $data->nama_budi;
                                                                                     $i++;
+                                                                                } else {
+                                                                                    $namabudi[$i]  = "-";
                                                                                 }
                                                                             }
                                                                             echo current($namabudi); ?></th>
@@ -54,9 +56,12 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
+
+                        $date = new DateTime();
                         foreach ($storage_tank as $data) {
+                            $dateNow = date_create($data->time);
                         ?> <tr>
-                                <?php if ($data->nama_tank == "Tank A") {
+                                <?php if ($data->nama_tank == "Tank A" && $dateNow->format('Y-m-d') == $date->format('Y-m-d')) {
                                     $date = date_create($data->time);  ?>
                                     <td><?php echo $date->format('H:i:s') ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -125,6 +130,8 @@
                                                                                 if ($data->nama_tank == "Tank B" && $p->format('Y-m-d') == $time) {
                                                                                     $namabudi[$i] =  $data->nama_budi;
                                                                                     $i++;
+                                                                                } else {
+                                                                                    $namabudi[$i] = "-";
                                                                                 }
                                                                             }
                                                                             echo current($namabudi); ?></th>
@@ -151,10 +158,11 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
+                        $date = new DateTime();
                         foreach ($storage_tank as $data) {
-
+                            $dateNow = date_create($data->time);
                         ?> <tr>
-                                <?php if ($data->nama_tank == "Tank B") {
+                                <?php if ($data->nama_tank == "Tank B" && $dateNow->format('Y-m-d') == $date->format('Y-m-d')) {
                                     $date = date_create($data->time); ?>
                                     <td><?php echo  $date->format('H:i:s'); ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -169,6 +177,8 @@
                                     $totaloilpmp = (float)$data->oil_bbls_pump + $totaloilpmp;
                                     $totalwtrpmp = (float)$data->water_bbls_pump +  $totalwtrpmp;
                                     $i++;
+                                }else{
+                                    echo '<td class="table-danger" colspan="7" >Belum Ada Data Hari Ini</td>';
                                 }
                                 ?>
                             </tr> <?php  }
