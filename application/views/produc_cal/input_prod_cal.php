@@ -35,19 +35,20 @@ endif; ?>
                 <div class="row">
                     <div class="col-2">
                         <label for="namaTank" class="form-label">Nama Storage Tank</label><br>
-                        <select class="p-2 rounded" id="namaTank" name="namaTank">
+                        <select class="p-2 rounded" id="namaTank" name="namaTank" onchange="budiSelectHandler(this)">
+                            <option class="form-control col-auto " value="-">--Pilih Storage Tank--</option>
                             <option class="form-control col-auto " value="Tank A">Tank A</option>
-                            <option class="form-control col-auto " value="Tank B">Tank B</option>
+                            <option class="form-control col-auto" value="Tank B">Tank B</option>
                             <option class="form-control col-auto " value="Tank 1">Tank 1</option>
                             <option class="form-control col-auto " value="Tank 2">Tank 2</option>
                             <option class="form-control col-auto " value="Tank 3">Tank 3</option>
                         </select>
                     </div>
-                    <div class="col-3">
-                        <label for="inputBudi" class="form-label">Budi#</label>
+                    <div class="col-1">
+                        <label for="selectBudi" id="labelBudi" class="form-label">Tested Well</label>
 
-                        <select class="p-2 rounded " id="inputBudi" name="inputBudi" style="width: 100% ;">
-                            <option value=" "></option>
+                        <select class="p-2 rounded " id="selectBudi" name="selectBudi">
+                            <option value=" ">--Pilih Budi--</option>
                             <?php foreach ($budi as $data) {
                             ?>
                                 <option class="form-control col-auto " value="<?php echo $data['nama_budi'] ?>"> <?php echo $data['nama_budi'] ?></option>
@@ -55,19 +56,16 @@ endif; ?>
                         </select>
 
                     </div>
-                    <!-- <div class="col-3">
-                            <label for="inputBulan" class="form-label">Bulan</label>
-                            <select name="month" id="month" class="p-2 rounded ">
-                                <?php
-                                for ($i = 0; $i < 12; $i++) {
-                                    $time = strtotime(sprintf('%d months', $i));
-                                    $label = date('F', $time);
-                                    $value = date('n', $time);
-                                    echo "<option class='form-control col-auto ' value='$value'>$label</option>";
-                                }
-                                ?>
-                            </select>
-                        </div> -->
+
+                    <!-- <?php
+                    for ($i = 0; $i < 12; $i++) {
+                        $time = strtotime(sprintf('%d months', $i));
+                        $label = date('F', $time);
+                        $value = date('n', $time);
+                        echo "<option class='form-control col-auto ' value='$value'>$label</option>";
+                    }
+                    ?> -->
+
                     <div class="col-12">
                         <p class="text-center text-dark fw-bold fs-5">Production</p>
                     </div>

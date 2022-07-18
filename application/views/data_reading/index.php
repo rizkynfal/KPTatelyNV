@@ -24,23 +24,5 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-3 mb-3">
-        <label for="namaReporter" class="form-label">Nama Reporter</label>
-        <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
-                                                                                                if ($_SESSION['status'] == 'login') {
-                                                                                                    echo $_SESSION["nama_user"];
-                                                                                                } ?>" readonly>
-    </div>
-    <div class="col-sm-3 mb-3">
-        <label for="inputTanggal" class="form-label">Tanggal</label>
-        <?php date_default_timezone_set("Asia/Jakarta");
-        $tanggal = date("d-F-Y"); ?>
-        <input type="text" name="inputTanggal" class="form-control" id="inputTanggal"value="<?php echo $tanggal ?>" readonly>
-    </div>
-    <div class="col-sm-3  mb-3">
-        <label for="inputTime" class="form-label">Time</label>
-        <input type="text" name="inputTime" class="form-control" id="inputTime" readonly>
-    </div>
-</div>
+
 <div class="row">

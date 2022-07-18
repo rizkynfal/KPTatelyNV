@@ -1,12 +1,14 @@
 </body>
 <script type="text/javascript">
-    var inputTime = document.getElementById('inputTime')
-    var inputTimeStamp = document.getElementById('inputTimeStamp')
-    var inputOilCm = document.getElementById('inputOilCmProd')
-    var inputOilBbls = document.getElementById('inputOilBblsProd')
-    var inputWatercm = document.getElementById('inputWaterCmProd')
-    var inputWaterbbl = document.getElementById('inputWaterBblsProd')
-   
+    var inputTime = document.getElementById('inputTime');
+    var inputTimeStamp = document.getElementById('inputTimeStamp');
+    var inputOilCm = document.getElementById('inputOilCmProd');
+    var inputOilBbls = document.getElementById('inputOilBblsProd');
+    var inputWatercm = document.getElementById('inputWaterCmProd');
+    var inputWaterbbl = document.getElementById('inputWaterBblsProd');
+    var namaTank = document.getElementById('namaTank');
+    var labelBudi = document.getElementById('labelBudi');
+    var selectbudi = document.getElementsById('selectBudi');
 
     function updateTime() {
         var d = new Date();
@@ -19,6 +21,24 @@
         var d = new Date();
         inputTimeStamp.value = d.toLocaleTimeString();
 
+    }
+
+    function showBudi() {
+        labelBudi.style.visibility = 'visible';
+        selectBudi.style.visibility = 'visible';
+    }
+
+    function hideBudi() {
+        labelBudi.style.visibility = 'hidden';
+        selectBudi.style.visibility = 'hidden';
+    }
+
+    function budiSelectHandler(namaTank) {
+        if (namaTank.value == 'Tank A' || namaTank.value == 'Tank B') {
+            showBudi();
+        } else {
+            hideBudi();
+        }
     }
 
     function sumOilUpdate() {
@@ -44,6 +64,7 @@
         }
         return inputWaterbbl.value = String(waterBbls);
     }
+
     setInterval(updateTime, 1000);
     setInterval(sumOilUpdate, 500);
     setInterval(sumWaterUpdate, 500);

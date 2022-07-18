@@ -41,7 +41,7 @@ class ProduCalcul extends CI_Controller
         $water_bbls_production = $this->input->post('inputWaterBblsProd');
         $oil_bbls_pump = $this->input->post('inputOilBblsPump');
         $water_bbls_pump = $this->input->post('inputWaterBblsPump');
-        $budi = $this->input->post('inputBudi');
+        $budi = $this->input->post('selectBudi');
         $storageTank = $this->StorageTank->getDataStorageTankbyTankName($nama_tank)->row();
         $dateNow = date_create($storageTank->time);
 

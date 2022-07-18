@@ -53,8 +53,6 @@ class DataReading extends CI_Controller
 
     public function inputDataWip()
     {
-        $query = $this->User->getUserByUsername($_SESSION['username_user']);
-        $user = $query->row();
         date_default_timezone_set("Asia/Jakarta");
         $date = new DateTime();
         $time = $date->format('Y-m-d H:i:s');
@@ -67,22 +65,99 @@ class DataReading extends CI_Controller
         $remaks = $this->input->post('inputRemaks');
         $whp_wip = $this->input->post('inputWhpWip');
         $budi_id_budi = $this->input->post('inputBudi');
+        $tgl = array();
 
-        $data = array(
-            'time' => $time,
-            'tanggal_input' => $tanggal_input,
-            'discharge_press' => $dishcarge_press,
-            'water_line_press' => $water_line_press,
-            'motor_freq' =>  $motor_freq,
-            'motor_ampere' => $motor_ampere,
-            'pumped_water' => $pumped_water,
-            'remarks' => $remaks,
-            'whp_wip' => $whp_wip,
-            'user_id_user' => $user->id_user,
-            'user_role_id_role' => $user->role_id_role,
-            'budi_id_budi' =>  $budi_id_budi,
+        $query = $this->User->getUserByUsername($_SESSION['username_user']);
+        $user = $query->row();
+        $query2 = $this->DataReadingModel->getDataWipbyDate($tanggal_input);
+        $wipResult = $query2->result();
+        $totalJam = 0;
+        $averagePompaAir1 = 0;
+        $averagePompaAir2 = 0;
+        $totalPompaAir1 = 0;
+        $totalPompaAir2 = 0;
+        $sumPompaAir1 = 0.0;
+        $sumPompaAir2 = 0.0;
 
-        );
+        if (empty($wipResult)) {
+            $data = array(
+                'time' => $time,
+                'tanggal_input' => $tanggal_input,
+                'discharge_press' => $dishcarge_press,
+                'water_line_press' => $water_line_press,
+                'motor_freq' =>  $motor_freq,
+                'motor_ampere' => $motor_ampere,
+                'pumped_water' => $pumped_water,
+                'remarks' => $remaks,
+                'whp_wip' => $whp_wip,
+                'total_jam' => $totalJam,
+                'average_pompa_air_1' => $averagePompaAir1,
+                'average_pompa_air_2' => $averagePompaAir2,
+                'total_pompa_air_1' => $totalPompaAir1,
+                'total_pompa_air_2' => $totalPompaAir2,
+                'user_id_user' => $user->id_user,
+                'user_role_id_role' => $user->role_id_role,
+                'budi_id_budi' =>  $budi_id_budi,
+
+            );
+        } else {
+            $i = 1;
+            foreach ($wipResult as $data2) {
+                if ($data2->remarks == 'Pompa No 1') {
+                    $sumPompaAir1 = (int)($data2->pumped_water) +  $sumPompaAir1;
+                } else {
+                    $sumPompaAir2 = (int)($data2->pumped_water) +  $sumPompaAir2;
+                }
+                $tgl[$i] = date_format(date_create($data2->time), "H");
+                $totalJam = (int)$tgl[$i] - (int)$tgl[1];
+                $totalPompaAir1 = $sumPompaAir1;
+                $totalPompaAir2 = $sumPompaAir2;
+                $i++;
+            }
+
+            if ($remaks == "Pompa No 1") {
+                $totalPompaAir1 = $totalPompaAir1 + $pumped_water;
+            } elseif ($remaks == "Pompa No 2") {
+                $totalPompaAir2 = $totalPompaAir2 + $pumped_water;
+            }
+            if ($totalJam == 0) {
+                if (isset($totalPompaAir1)) {
+                    $averagePompaAir1 = $totalPompaAir1;
+                }
+                if (isset($totalPompaAir2)) {
+                    $averagePompaAir2 = $totalPompaAir2;
+                }
+            } else {
+                if (isset($totalPompaAir1)) {
+                    $averagePompaAir1 = (float)$totalPompaAir1 / (float)$totalJam;
+                }
+                if (isset($totalPompaAir2)) {
+                    $averagePompaAir2 = (float)$totalPompaAir2 / (float)$totalJam;
+                }
+            }
+
+
+            $data = array(
+                'time' => $time,
+                'tanggal_input' => $tanggal_input,
+                'discharge_press' => $dishcarge_press,
+                'water_line_press' => $water_line_press,
+                'motor_freq' =>  $motor_freq,
+                'motor_ampere' => $motor_ampere,
+                'pumped_water' => $pumped_water,
+                'remarks' => $remaks,
+                'whp_wip' => $whp_wip,
+                'total_jam' => $totalJam,
+                'average_pompa_air_1' => $averagePompaAir1,
+                'average_pompa_air_2' => $averagePompaAir2,
+                'total_pompa_air_1' => $totalPompaAir1,
+                'total_pompa_air_2' => $totalPompaAir2,
+                'user_id_user' => $user->id_user,
+                'user_role_id_role' => $user->role_id_role,
+                'budi_id_budi' =>  $budi_id_budi,
+
+            );
+        }
         $this->DataReadingModel->inputWip($data);
 
         redirect('datareading/index');

@@ -1,3 +1,5 @@
+<?php $date = new DateTime();
+$currentTime = $date->format('Y-m-d'); ?>
 <section class="collapse show" id="tableProdCal">
     <div class="row">
         <p class=" text-start text-secondary fs-5 ms-4">
@@ -18,13 +20,13 @@
                     <thead>
                         <tr>
                             <th rowspan="3">Time</th>
-                            <th colspan="7">Test Tank A <br> Tested Well <?php $date = new DateTime();
+                            <th colspan="7">Test Tank A <br> Tested Well <?php
                                                                             $namabudi = array();
                                                                             $i = 0;
-                                                                            $time = $date->format('Y-m-d');
+
                                                                             foreach ($storage_tank as $data) {
                                                                                 $p = date_create($data->time);
-                                                                                if ($data->nama_tank == "Tank A" &&  $p->format('Y-m-d') == $time) {
+                                                                                if ($data->nama_tank == "Tank A" &&  $p->format('Y-m-d') == $currentTime) {
                                                                                     $namabudi[$i] = $data->nama_budi;
                                                                                     $i++;
                                                                                 } else {
@@ -56,12 +58,10 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
-
-                        $date = new DateTime();
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time);
                         ?> <tr>
-                                <?php if ($data->nama_tank == "Tank A" && $dateNow->format('Y-m-d') == $date->format('Y-m-d')) {
+                                <?php if ($data->nama_tank == "Tank A" && $dateNow->format('Y-m-d') == $currentTime) {
                                     $date = date_create($data->time);  ?>
                                     <td><?php echo $date->format('H:i:s') ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -121,13 +121,13 @@
                     <thead>
                         <tr>
                             <th rowspan="3">Time</th>
-                            <th colspan="7">Test Tank B <br> Tested Well <?php $date = new DateTime();
-                                                                            $time = $date->format('Y-m-d');
+                            <th colspan="7">Test Tank B <br> Tested Well <?php
+
                                                                             $namabudi = array();
                                                                             $i = 0;
                                                                             foreach ($storage_tank as $data) {
                                                                                 $p = date_create($data->time);
-                                                                                if ($data->nama_tank == "Tank B" && $p->format('Y-m-d') == $time) {
+                                                                                if ($data->nama_tank == "Tank B" && $p->format('Y-m-d') == $currentTime) {
                                                                                     $namabudi[$i] =  $data->nama_budi;
                                                                                     $i++;
                                                                                 } else {
@@ -162,7 +162,7 @@
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time);
                         ?> <tr>
-                                <?php if ($data->nama_tank == "Tank B" && $dateNow->format('Y-m-d') == $date->format('Y-m-d')) {
+                                <?php if ($data->nama_tank == "Tank B" && $dateNow->format('Y-m-d') == $currentTime) {
                                     $date = date_create($data->time); ?>
                                     <td><?php echo  $date->format('H:i:s'); ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -177,8 +177,6 @@
                                     $totaloilpmp = (float)$data->oil_bbls_pump + $totaloilpmp;
                                     $totalwtrpmp = (float)$data->water_bbls_pump +  $totalwtrpmp;
                                     $i++;
-                                }else{
-                                    echo '<td class="table-danger" colspan="7" >Belum Ada Data Hari Ini</td>';
                                 }
                                 ?>
                             </tr> <?php  }
@@ -250,8 +248,10 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
-                        foreach ($storage_tank as $data) {  ?> <tr>
-                                <?php if ($data->nama_tank == "Tank 1") {
+                        foreach ($storage_tank as $data) {
+                            $dateNow = date_create($data->time); ?>
+                            <tr>
+                                <?php if ($data->nama_tank == "Tank 1" && $dateNow->format('Y-m-d' == $currentTime)) {
                                     $date = date_create($data->time); ?>
                                     <td><?php echo $date->format('H:i:s') ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -331,8 +331,10 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
-                        foreach ($storage_tank as $data) { ?> <tr>
-                                <?php if ($data->nama_tank == "Tank 2") { ?>
+                        foreach ($storage_tank as $data) {
+                            $dateNow = date_create($data->time); ?>
+                            <tr>
+                                <?php if ($data->nama_tank == "Tank 2" && $dateNow->format('Y-m-d') == $currentTime) { ?>
                                     <td><?php echo $data->time ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
                                     <td><?php echo $data->oil_bbls_production ?></td>
@@ -415,8 +417,10 @@
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
-                        foreach ($storage_tank as $data) { ?> <tr>
-                                <?php if ($data->nama_tank == "Tank 3") { ?>
+                        foreach ($storage_tank as $data) {
+                            $dateNow = date_create($data->time); ?>
+                            <tr>
+                                <?php if ($data->nama_tank == "Tank 3" && $dateNow->format('Y-m-d') == $currentTime) { ?>
                                     <td><?php echo $data->time ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
                                     <td><?php echo $data->oil_bbls_production ?></td>

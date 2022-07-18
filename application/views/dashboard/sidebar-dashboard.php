@@ -74,7 +74,7 @@
                                                                         if ($_SESSION['status'] == 'login') {
                                                                             echo $_SESSION["nama_user"];
                                                                         } else {
-                                                                            echo "admin";
+                                                                            redirect('home/logout');
                                                                         } ?></span>
 
                             </a>

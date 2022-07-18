@@ -4,7 +4,7 @@ class DataReadingModel extends CI_Model
 {
     public function getDataWip()
     {
-        
+
         $this->db->order_by('time', 'ASC');
         return $this->db->get('wip');
     }
@@ -12,7 +12,11 @@ class DataReadingModel extends CI_Model
     {
         return $this->db->insert('wip', $data);
     }
-
+    public function getDataWipbyDate($date)
+    {
+        $this->db->where('tanggal_input', $date);
+        return $this->db->get('wip');
+    }
     public function inputDataReading($data)
     {
         return $this->db->insert('data_reading', $data);

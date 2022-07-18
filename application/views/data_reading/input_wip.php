@@ -2,6 +2,21 @@
 
     <div class="card card-body p-3 mb-4">
         <form class="row" method="POST" action="<?= base_url() ?>datareading/inputDataWip">
+            <div class="row">
+                <div class="col-sm-3 mb-3">
+                    <label for="namaReporter" class="form-label">Nama Reporter</label>
+                    <input type="text" class="form-control" id="namaReporter" name="namaReporter" value="<?php
+                                                                                                            if ($_SESSION['status'] == 'login') {
+                                                                                                                echo $_SESSION["nama_user"];
+                                                                                                            } ?>" readonly>
+                </div>
+                <div class="col-sm-3 mb-3">
+                    <label for="inputTanggal" class="form-label">Tanggal</label>
+                    <?php date_default_timezone_set("Asia/Jakarta");
+                    $tanggal = date("d-F-Y"); ?>
+                    <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
+                </div>
+            </div>
             <div class="form-header fs-3 text-center">
                 Input Wip
             </div>
@@ -10,10 +25,10 @@
                 <br>
                 <select class="p-2 rounded " id="inputBudi" name="inputBudi" style="width: 100% ;">
                     <option>---</option>
-                    <?php foreach ($budi as $data) {
-                    ?>
-                        <option class="form-control col-auto " value="<?php echo $data->id_budi?>"> <?php echo $data->nama_budi ?></option>
-                    <?php } ?>
+                   
+                
+                        <option class="form-control col-auto " value= "1">Budi 3</option>
+                 
                 </select>
             </div>
 
