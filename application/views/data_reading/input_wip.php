@@ -17,6 +17,10 @@
                     <input type="text" name="inputTanggal" class="form-control" id="inputTanggal" value="<?php echo $tanggal ?>" readonly>
                 </div>
             </div>
+            <div class="col-sm-3  mb-3">
+                <label for="inputTime" class="form-label">Time</label>
+                <input type="text" name="inputTime" class="form-control" id="inputTime" readonly>
+            </div>
             <div class="form-header fs-3 text-center">
                 Input Wip
             </div>
@@ -25,10 +29,10 @@
                 <br>
                 <select class="p-2 rounded " id="inputBudi" name="inputBudi" style="width: 100% ;">
                     <option>---</option>
-                   
-                
-                        <option class="form-control col-auto " value= "1">Budi 3</option>
-                 
+
+
+                    <option class="form-control col-auto " value="1">Budi 3</option>
+
                 </select>
             </div>
 

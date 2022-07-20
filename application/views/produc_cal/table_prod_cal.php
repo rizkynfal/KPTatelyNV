@@ -1,5 +1,3 @@
-<?php $date = new DateTime();
-$currentTime = $date->format('Y-m-d'); ?>
 <section class="collapse show" id="tableProdCal">
     <div class="row">
         <p class=" text-start text-secondary fs-5 ms-4">
@@ -23,7 +21,8 @@ $currentTime = $date->format('Y-m-d'); ?>
                             <th colspan="7">Test Tank A <br> Tested Well <?php
                                                                             $namabudi = array();
                                                                             $i = 0;
-
+                                                                            $date = new DateTime();
+                                                                            $currentTime = $date->format('Y-m-d');
                                                                             foreach ($storage_tank as $data) {
                                                                                 $p = date_create($data->time);
                                                                                 if ($data->nama_tank == "Tank A" &&  $p->format('Y-m-d') == $currentTime) {
@@ -58,6 +57,8 @@ $currentTime = $date->format('Y-m-d'); ?>
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
+                        $date = new DateTime();
+                        $currentTime = $date->format('Y-m-d');
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time);
                         ?> <tr>
@@ -122,7 +123,8 @@ $currentTime = $date->format('Y-m-d'); ?>
                         <tr>
                             <th rowspan="3">Time</th>
                             <th colspan="7">Test Tank B <br> Tested Well <?php
-
+                                                                            $date = new DateTime();
+                                                                            $currentTime = $date->format('Y-m-d');
                                                                             $namabudi = array();
                                                                             $i = 0;
                                                                             foreach ($storage_tank as $data) {
@@ -159,6 +161,7 @@ $currentTime = $date->format('Y-m-d'); ?>
                         $totalwtrpmp = 0;
                         $i = 0;
                         $date = new DateTime();
+                        $currentTime = $date->format('Y-m-d');
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time);
                         ?> <tr>
@@ -221,6 +224,7 @@ $currentTime = $date->format('Y-m-d'); ?>
                     <caption class=" text-start text-secondary fs-5 ms-4">
                         Tank 1 (As a Storage Tank)
                     </caption>
+                    
                     <thead>
                         <tr>
                             <th rowspan="3">Time</th>
@@ -248,10 +252,12 @@ $currentTime = $date->format('Y-m-d'); ?>
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
+                        $date =  new DateTime();
+                        $currentTime = date_format($date, 'Y-m-d');
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time); ?>
                             <tr>
-                                <?php if ($data->nama_tank == "Tank 1" && $dateNow->format('Y-m-d' == $currentTime)) {
+                                <?php if ($data->nama_tank == "Tank 1" && $dateNow->format('Y-m-d') == $currentTime) {
                                     $date = date_create($data->time); ?>
                                     <td><?php echo $date->format('H:i:s') ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
@@ -331,6 +337,8 @@ $currentTime = $date->format('Y-m-d'); ?>
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
                         $i = 0;
+                        $date = new DateTime();
+                        $currentTime = $date->format('Y-m-d');
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time); ?>
                             <tr>
@@ -415,12 +423,14 @@ $currentTime = $date->format('Y-m-d'); ?>
                         $totalOilbbl = 0;
                         $totalWtrbbl = 0;
                         $totaloilpmp = 0;
+                        $date = new DateTime();
+                        $currentTime = date_format($date, 'Y-m-d');
                         $totalwtrpmp = 0;
                         $i = 0;
                         foreach ($storage_tank as $data) {
                             $dateNow = date_create($data->time); ?>
                             <tr>
-                                <?php if ($data->nama_tank == "Tank 3" && $dateNow->format('Y-m-d') == $currentTime) { ?>
+                                <?php if ($data->nama_tank == "Tank 3" && $dateNow->format('Y-m-d') ==  $currentTime) { ?>
                                     <td><?php echo $data->time ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
                                     <td><?php echo $data->oil_bbls_production ?></td>

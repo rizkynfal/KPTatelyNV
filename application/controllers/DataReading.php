@@ -80,26 +80,59 @@ class DataReading extends CI_Controller
         $sumPompaAir2 = 0.0;
 
         if (empty($wipResult)) {
-            $data = array(
-                'time' => $time,
-                'tanggal_input' => $tanggal_input,
-                'discharge_press' => $dishcarge_press,
-                'water_line_press' => $water_line_press,
-                'motor_freq' =>  $motor_freq,
-                'motor_ampere' => $motor_ampere,
-                'pumped_water' => $pumped_water,
-                'remarks' => $remaks,
-                'whp_wip' => $whp_wip,
-                'total_jam' => $totalJam,
-                'average_pompa_air_1' => $averagePompaAir1,
-                'average_pompa_air_2' => $averagePompaAir2,
-                'total_pompa_air_1' => $totalPompaAir1,
-                'total_pompa_air_2' => $totalPompaAir2,
-                'user_id_user' => $user->id_user,
-                'user_role_id_role' => $user->role_id_role,
-                'budi_id_budi' =>  $budi_id_budi,
+            if ($remaks == 'Pompa No 1') {
 
-            );
+                $averagePompaAir1 = $pumped_water;
+                $averagePompaAir2 = 0;
+                $totalPompaAir1 =  $pumped_water;
+                $totalPompaAir2 = 0;
+                $data = array(
+                    'time' => $time,
+                    'tanggal_input' => $tanggal_input,
+                    'discharge_press' => $dishcarge_press,
+                    'water_line_press' => $water_line_press,
+                    'motor_freq' =>  $motor_freq,
+                    'motor_ampere' => $motor_ampere,
+                    'pumped_water' => $pumped_water,
+                    'remarks' => $remaks,
+                    'whp_wip' => $whp_wip,
+                    'total_jam' => $totalJam,
+                    'average_pompa_air_1' => $averagePompaAir1,
+                    'average_pompa_air_2' => $averagePompaAir2,
+                    'total_pompa_air_1' => $totalPompaAir1,
+                    'total_pompa_air_2' => $totalPompaAir2,
+                    'user_id_user' => $user->id_user,
+                    'user_role_id_role' => $user->role_id_role,
+                    'budi_id_budi' =>  $budi_id_budi,
+
+                );
+            } else {
+
+                $averagePompaAir1 = 0;
+                $averagePompaAir2 = $pumped_water;
+                $totalPompaAir1 =  0;
+                $totalPompaAir2 = $pumped_water;
+                $data = array(
+                    'time' => $time,
+                    'tanggal_input' => $tanggal_input,
+                    'discharge_press' => $dishcarge_press,
+                    'water_line_press' => $water_line_press,
+                    'motor_freq' =>  $motor_freq,
+                    'motor_ampere' => $motor_ampere,
+                    'pumped_water' => $pumped_water,
+                    'remarks' => $remaks,
+                    'whp_wip' => $whp_wip,
+                    'total_jam' => $totalJam,
+                    'average_pompa_air_1' => $averagePompaAir1,
+                    'average_pompa_air_2' => $averagePompaAir2,
+                    'total_pompa_air_1' => $totalPompaAir1,
+                    'total_pompa_air_2' => $totalPompaAir2,
+                    'user_id_user' => $user->id_user,
+                    'user_role_id_role' => $user->role_id_role,
+                    'budi_id_budi' =>  $budi_id_budi,
+
+                );
+            }
         } else {
             $i = 1;
             foreach ($wipResult as $data2) {
