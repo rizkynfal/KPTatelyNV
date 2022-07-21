@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller
         parent::__construct();
 
         $this->load->library('session');
+
     }
     public function dashboardSuperint()
     {
@@ -15,6 +16,7 @@ class Dashboard extends CI_Controller
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
+        redirect('chart/index');
     }
     public function dashboardSupervisor()
     {

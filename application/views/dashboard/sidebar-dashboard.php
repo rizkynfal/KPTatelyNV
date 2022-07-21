@@ -19,7 +19,7 @@
                 <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class="navbar-brand d-flex align-items-center pb-3 mt-auto text-white text-decoration-none">
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="sideBarDash">
                         <li class="nav-item">
-                            <a href="<?= base_url('dashboard/dashboardSuperint') ?>" class="text-light nav-link align-middle px-0">
+                            <a href="<?= base_url('chart/index') ?>" class="text-light nav-link align-middle px-0">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
