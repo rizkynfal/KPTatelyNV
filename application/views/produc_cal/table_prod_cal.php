@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th rowspan="3">Time</th>
-                            <th colspan="7">Test Tank A <br> Tested Well <?php
+                            <th colspan="9">Test Tank A <br> Tested Well <?php
                                                                             $namabudi = array();
                                                                             $i = 0;
                                                                             $date = new DateTime();
@@ -37,15 +37,17 @@
                         </tr>
 
                         <tr>
-                            <th colspan="4">Production</th>
+                            <th colspan="6">Production</th>
                             <th colspan="2">Pump</th>
 
                         </tr>
                         <tr>
                             <th>Oil in cm</th>
                             <th>Oil in bbls</th>
+                            <th>Rate Oil per 3 Jam </th>
                             <th>Water in cm</th>
                             <th>Water in bbls</th>
+                            <th>Rate Water per 3 Jam</th>
                             <th>Oil in bbls</th>
                             <th>Water in bbls</th>
                         </tr>
@@ -56,6 +58,8 @@
                         $totalWtrbbl = 0;
                         $totaloilpmp = 0;
                         $totalwtrpmp = 0;
+                        $oilper3jam = 0;
+                        $waterper3jam = 0;
                         $i = 0;
                         $date = new DateTime();
                         $currentTime = $date->format('Y-m-d');
@@ -67,8 +71,11 @@
                                     <td><?php echo $date->format('H:i:s') ?></td>
                                     <td><?php echo $data->oil_cm_production ?></td>
                                     <td><?php echo $data->oil_bbls_production ?></td>
+                                    <td><?php echo ((float)$data->oil_cm_production - (float)$oilper3jam) * 1.4  ?></td>
+
                                     <td><?php echo $data->water_cm_production ?></td>
                                     <td><?php echo $data->water_bbls_production ?></td>
+                                    <td><?php echo ((float)$data->water_cm_production - (float)$waterper3jam) * 1.4  ?></td>
                                     <td><?php echo $data->oil_bbls_pump ?></td>
                                     <td><?php echo $data->water_bbls_pump ?></td>
                                 <?php
@@ -76,6 +83,8 @@
                                     $totalWtrbbl = (float)$data->water_bbls_production + $totalWtrbbl;
                                     $totaloilpmp = (float)$data->oil_bbls_pump + $totaloilpmp;
                                     $totalwtrpmp = (float)$data->water_bbls_pump +  $totalwtrpmp;
+                                    $oilper3jam = (float)$data->oil_cm_production;
+                                    $waterper3jam = (float)$data->water_cm_production;
                                     $i++;
                                 }
                                 ?>
@@ -224,7 +233,7 @@
                     <caption class=" text-start text-secondary fs-5 ms-4">
                         Tank 1 (As a Storage Tank)
                     </caption>
-                    
+
                     <thead>
                         <tr>
                             <th rowspan="3">Time</th>

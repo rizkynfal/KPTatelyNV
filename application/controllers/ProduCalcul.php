@@ -32,7 +32,7 @@ class ProduCalcul extends CI_Controller
         $query = $this->User->getUserByUsername($_SESSION['username_user']);
         $user = $query->row();
         date_default_timezone_set("Asia/Jakarta");
-        $date = date_create('2022-07-20 23:34:22');
+        $date = date_create('now');
         $time = $date->format('Y-m-d H:i:s');
         $nama_tank = $this->input->post('namaTank');
         $oil_cm_production = $this->input->post('inputOilCmProd');
@@ -43,18 +43,25 @@ class ProduCalcul extends CI_Controller
         $water_bbls_pump = $this->input->post('inputWaterBblsPump');
         $budi = $this->input->post('selectBudi');
         $storageTank = $this->StorageTank->getDataStorageTankbyName($nama_tank)->row();
-        $dateNow = date_create($storageTank->time);
+        $dateNow = date_create('now');
+        if (isset($storageTank)) {
+            $dateNow = date_create($storageTank->time);
+        } else {
+            $dateNow = date_create('now');
+        }
+
 
 
         if ($dateNow->format('Y-m-d') == $date->format('Y-m-d')) {
             if ($nama_tank == "Tank A" || $nama_tank == "Tank B") {
-                if ($budi != $storageTank->nama_budi) {
+                if ($budi != $storageTank->nama_budi && isset($storageTank)) {
                     $this->session->set_flashdata('flash', 'Budi tidak boleh berbeda pada hari yang sama');
                     redirect('ProduCalcul/index');
                 } elseif ((int)date_format($date, 'H') >= 23 || date_format($date, 'H') == "00") {
 
                     $data_closing = array(
-                        'time' => date_format(date_sub(date_create('2022-07-20 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                        'time' => date_format(date_sub(date_create('now 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                        'tanggal_input' => date_format(date_sub(date_create('now'), date_interval_create_from_date_string("1 days")), 'Y-F-d'),
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
@@ -73,6 +80,7 @@ class ProduCalcul extends CI_Controller
                     if ((int)date_format($date, 'H') >= 23 || date_format($date, 'H') == "00") {
                         $data = array(
                             'time' => $time,
+                            'tanggal_input' => date_format($date, 'Y-F-d'),
                             'nama_tank' => $nama_tank,
                             'oil_cm_production' => $oil_cm_production,
                             'oil_bbls_production' => $oil_bbls_production,
@@ -86,7 +94,8 @@ class ProduCalcul extends CI_Controller
                         );
                         $this->StorageTank->inputStorageTank($data);
                         $data_closing = array(
-                            'time' => date_format(date_sub(date_create('2022-07-20 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                            'time' => date_format(date_sub(date_create('now 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                            'tanggal_input' => date_format(date_sub(date_create('now'), date_interval_create_from_date_string("1 days")), 'Y-F-d'),
                             'nama_tank' => $nama_tank,
                             'oil_cm_production' => $oil_cm_production,
                             'oil_bbls_production' => $oil_bbls_production,
@@ -104,6 +113,7 @@ class ProduCalcul extends CI_Controller
                     } else {
                         $data = array(
                             'time' => $time,
+                            'tanggal_input' => date_format($date, 'Y-F-d'),
                             'nama_tank' => $nama_tank,
                             'oil_cm_production' => $oil_cm_production,
                             'oil_bbls_production' => $oil_bbls_production,
@@ -123,6 +133,7 @@ class ProduCalcul extends CI_Controller
                 if ((int)date_format($date, 'H') >= 23 || date_format($date, 'H') == "00") {
                     $data = array(
                         'time' => $time,
+                        'tanggal_input' => date_format($date, 'Y-F-d'),
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
@@ -136,7 +147,8 @@ class ProduCalcul extends CI_Controller
                     );
                     $this->StorageTank->inputStorageTank($data);
                     $data_closing = array(
-                        'time' => date_format(date_sub(date_create('2022-07-20 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                        'time' => date_format(date_sub(date_create('now 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                        'tanggal_input' => date_format(date_sub(date_create('now'), date_interval_create_from_date_string("1 days")), 'Y-F-d'),
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
@@ -153,7 +165,8 @@ class ProduCalcul extends CI_Controller
                     redirect('ProduCalcul/index');
                 } else {
                     $data = array(
-                        'time' => $time,
+                        'time' => $time, 
+                        'tanggal_input' => date_format($date, 'Y-F-d'),
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
@@ -166,12 +179,14 @@ class ProduCalcul extends CI_Controller
                         'user_role_id_role' => $user->role_id_role
                     );
                     $this->StorageTank->inputStorageTank($data);
+                    redirect('ProduCalcul/index');
                 }
             }
         } else {
             if ((int)date_format($date, 'H') >= 23 || date_format($date, 'H') == "00") {
                 $data = array(
                     'time' => $time,
+                    'tanggal_input' => date_format($date, 'Y-F-d'),
                     'nama_tank' => $nama_tank,
                     'oil_cm_production' => $oil_cm_production,
                     'oil_bbls_production' => $oil_bbls_production,
@@ -185,7 +200,8 @@ class ProduCalcul extends CI_Controller
                 );
                 $this->StorageTank->inputStorageTank($data);
                 $data_closing = array(
-                    'time' => date_format(date_sub(date_create('2022-07-20 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                    'time' => date_format(date_sub(date_create('now 23:59:59'), date_interval_create_from_date_string("1 days")), 'Y-m-d H:i:s'),
+                    'tanggal_input' => date_format(date_sub(date_create('now'), date_interval_create_from_date_string("1 days")), 'Y-F-d'),
                     'nama_tank' => $nama_tank,
                     'oil_cm_production' => $oil_cm_production,
                     'oil_bbls_production' => $oil_bbls_production,
@@ -203,6 +219,7 @@ class ProduCalcul extends CI_Controller
             } else {
                 $data = array(
                     'time' => $time,
+                    'tanggal_input' => date_format($date, 'Y-F-d'),
                     'nama_tank' => $nama_tank,
                     'oil_cm_production' => $oil_cm_production,
                     'oil_bbls_production' => $oil_bbls_production,

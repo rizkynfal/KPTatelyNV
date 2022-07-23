@@ -27,7 +27,8 @@ class Chart extends CI_Controller
             );
         }
         $data['chart_data'] = ($dataPompa);
-        $this->load->view('templates/head');
+        $data['judul'] = "Superintendent Dashboard";
+        $this->load->view('templates/head',$data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
         $this->load->view('dashboard/chart', $data);

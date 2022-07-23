@@ -13,6 +13,8 @@
     var namaTank = document.getElementById('namaTank')
     var labelBudi = document.getElementById('labelBudi')
     var selectbudi = document.getElementsById('selectBudi')
+    var sebelum = document.getElementById('oilCmsebelum')
+
 
     function updateTime() {
         var d = new Date();
@@ -35,11 +37,14 @@
     function hideBudi() {
         labelBudi.style.visibility = 'hidden';
         selectBudi.style.visibility = 'hidden';
+
     }
 
     function budiSelectHandler(namaTank) {
         if (namaTank.value == 'Tank A' || namaTank.value == 'Tank B') {
-            showBudi();
+            sebelum.style.display = 'none'
+
+
         } else {
             hideBudi();
         }

@@ -38,10 +38,11 @@
                     </thead>
                     <tbody class="text-start">
                         <?php date_default_timezone_set("Asia/Jakarta");
-                        $date = date_create('now');
+                        $date = date_create();
                         $time = $date->format('Y-m-d');
                         foreach ($storage_tank as $data) {
-                            if(date_format($data->time, 'Y-m-d') == $time){
+                            $dateData = date_create($data->time);
+                            if(date_format($dateData, 'Y-m-d') == $time){
 
                             }
                         } ?>

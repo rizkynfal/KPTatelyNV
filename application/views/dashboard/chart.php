@@ -38,7 +38,7 @@
                             $pompa2 = $row['average_pompa_2'];
                             echo "['" . "'," .  $pompa1 . "," .  $pompa2 . "],";
                         }
-                        
+                        echo "['" . "'," .  $pompa1 . "," .  $pompa2 . "],";
                     }
                 } ?>
             ]);

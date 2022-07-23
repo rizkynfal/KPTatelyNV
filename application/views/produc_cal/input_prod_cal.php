@@ -35,7 +35,7 @@ endif; ?>
                 <div class="row">
                     <div class="col-2">
                         <label for="namaTank" class="form-label">Nama Storage Tank</label><br>
-                        <select class="p-2 rounded" id="namaTank" name="namaTank" onchange="budiSelectHandler(this)">
+                        <select class="p-2 rounded" id="namaTank" name="namaTank" onchange="budiSelectHandler(this);">
                             <option class="form-control col-auto " value="-">--Pilih Storage Tank--</option>
                             <option class="form-control col-auto " value="Tank A">Tank A</option>
                             <option class="form-control col-auto" value="Tank B">Tank B</option>
@@ -58,26 +58,27 @@ endif; ?>
                     </div>
 
                     <!-- <?php
-                    for ($i = 0; $i < 12; $i++) {
-                        $time = strtotime(sprintf('%d months', $i));
-                        $label = date('F', $time);
-                        $value = date('n', $time);
-                        echo "<option class='form-control col-auto ' value='$value'>$label</option>";
-                    }
-                    ?> -->
+                            for ($i = 0; $i < 12; $i++) {
+                                $time = strtotime(sprintf('%d months', $i));
+                                $label = date('F', $time);
+                                $value = date('n', $time);
+                                echo "<option class='form-control col-auto ' value='$value'>$label</option>";
+                            }
+                            ?> -->
 
                     <div class="col-12">
                         <p class="text-center text-dark fw-bold fs-5">Production</p>
                     </div>
                     <div class="col-3">
-                        <label for="inputOilCmProd" class="form-label">Oil in Cm</label>
+                        <label for="inputOilCmProd" class="form-label">Oil in Cm Total Sekarang</label>
                         <input placeholder="0" form="testTankAform" type="text" class="form-control" name="inputOilCmProd" id="inputOilCmProd">
+
+                        <label  for="oilCmsebelum" class="form-label">Oil in Cm 3 Jam Sebelum</label>
+                        <input type="text" class="form-control" name="oilCmsebelum" id="oilCmsebelum">
                     </div>
                     <div class="col-3 mb-3">
                         <label for="inputOilBblsProd" class="form-label">Oil in Bbls</label>
                         <input placeholder="0" type="text" form="testTankAform" class="form-control" id="inputOilBblsProd" name="inputOilBblsProd">
-
-
                     </div>
                     <div class="col-3 mb-3">
                         <label for="inputWaterCmProd" class="form-label">Water in Cm</label>
