@@ -1,4 +1,9 @@
-<div class="shadow rounded p-2 m-2  ">
+<div class="shadow rounded p-2 m-2  "> <?php if ($this->session->flashdata('flash')) : ?>
+        <script>
+            alert('<?php echo $this->session->flashdata('flash') ?>');
+        </script>
+    <?php $this->session->unset_userdata('flash');
+                                        endif; ?>
     <div class="row  justify-content-start ">
 
         <div class="col border border-success rounded  me-3 text-center">

@@ -19,7 +19,11 @@ class StorageTank extends CI_Model
   }
   public function getDataStorageTankbyDate($date)
   {
-    $this->db->where('time',$date);
+    $this->db->where('tanggal_input', $date);
     return $this->db->get('storage_tank');
+  }
+  public function getDailyTotalProd()
+  {
+    return $this->db->get('daily_total_prod');
   }
 }

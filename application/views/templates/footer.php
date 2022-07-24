@@ -42,7 +42,8 @@
 
     function budiSelectHandler(namaTank) {
         if (namaTank.value == 'Tank A' || namaTank.value == 'Tank B') {
-            sebelum.style.display = 'none'
+            showBudi()
+
 
 
         } else {
