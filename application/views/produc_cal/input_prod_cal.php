@@ -1,9 +1,4 @@
-<?php if ($this->session->flashdata('flash')) : ?>
-    <script>
-        alert('<?php echo $this->session->flashdata('flash') ?>');
-    </script>
-<?php $this->session->unset_userdata('flash');
-endif; ?>
+
 <div class="collapse" id="inputProdCal">
     <div class="row">
         <form id="testTankAform" class="row" method="POST" action="<?= base_url() ?>producalcul/inputTank">
@@ -73,8 +68,7 @@ endif; ?>
                         <label for="inputOilCmProd" class="form-label">Oil in Cm Total Sekarang</label>
                         <input placeholder="0" form="testTankAform" type="text" class="form-control" name="inputOilCmProd" id="inputOilCmProd">
 
-                        <label  for="oilCmsebelum" class="form-label">Oil in Cm 3 Jam Sebelum</label>
-                        <input type="text" class="form-control" name="oilCmsebelum" id="oilCmsebelum">
+
                     </div>
                     <div class="col-3 mb-3">
                         <label for="inputOilBblsProd" class="form-label">Oil in Bbls</label>

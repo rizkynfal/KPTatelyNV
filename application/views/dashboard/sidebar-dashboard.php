@@ -27,7 +27,7 @@
                             <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>productiondata/index" type="button"><i class="fs-4 bi-file-bar-graph-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Data</span></a>
                         </li>
                         <li>
-                            <a class="nav-link px-0 align-start text-light" href="<?= base_url()?>producalcul/index"><i class="fs-4 bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Calculation</span></a>
+                            <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>producalcul/index"><i class="fs-4 bi-clipboard-data-fill"></i> <span class="ms-1 d-none d-sm-inline">Production Calculation</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>datareading/index" type="button"><i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Data Reading</span></a>
@@ -35,7 +35,10 @@
                         <li class="nav-item">
                             <a class="nav-link px-0 align-start text-light" href="<?= base_url() ?>SummaryReport/index" type="button"><i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Daily Summary Report</span></a>
                         </li>
-                      
+
+
+                    </ul>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0  mt-auto align-items-center align-items-sm-start ">
                         <div class="mt-auto">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fs-4 bi bi-person-circle" alt="hugenerd" width="30" height="30" class="rounded-circle"></i>
@@ -54,8 +57,9 @@
                                 <li><a class="dropdown-item" href="<?= base_url('home/logout') ?>">Sign out</a></li>
                             </ul>
                         </div>
-
                     </ul>
+
+
             </div>
         </nav>
     </section>

@@ -22,16 +22,16 @@ class Dashboard extends CI_Controller
     {
         $data['judul'] = "Supervisor Dashboard";
         $this->load->view('templates/head', $data);
-        $this->load->view('home_page/navbar-home');
-        $this->load->view('home_page/index');
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/sidebar-dashboard');
+        $this->load->view('dashboard/index');
+        redirect('chart/index');
     }
     public function dashboardOperator()
     {
-        $data['judul'] = "Operator Dashboard";
+        $data['judul'] = "Supervisor Dashboard";
         $this->load->view('templates/head', $data);
-        $this->load->view('home_page/navbar-home');
-        $this->load->view('home_page/index');
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/sidebar-dashboard');
+        $this->load->view('dashboard/index');
+        redirect('chart/index');
     }
 }

@@ -15,12 +15,13 @@ class SummaryReport extends CI_Controller
     }
     public function index()
     {
+        $date = new DateTime();
+        $time = $date->format('Y-m-d H:i:s');
         $data['judul'] = "Daily Summary Report";
-        $data['storage_tank'] = $this->StorageTank->getDataStorageTank()->result();
+        $data['daily_report'] = $this->SummaryReportModel->getSummaryReport()->result();
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
         $this->load->view('summary_report/index');
     }
-
 }

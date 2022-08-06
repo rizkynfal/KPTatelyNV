@@ -11,6 +11,8 @@ class ProduCalcul extends CI_Controller
         $this->load->model('StorageTank');
         $this->load->model('User');
         $this->load->model('Budi');
+        $this->load->model('DataReadingModel');
+        $this->load->model('SummaryReportModel');
     }
     public function index()
     {
@@ -20,12 +22,14 @@ class ProduCalcul extends CI_Controller
         $data['budi'] = $this->Budi->getDataBudi()->result_array();
         $data['storage_tank_1'] = $this->StorageTank->getDataStorageTankbyDate($date)->result();
         $data['User'] = $this->User->getUser()->result();
+        $data['daily_report'] = $this->SummaryReportModel->getSummaryReport()->result();
         $this->load->view('templates/head', $data);
         $this->load->view('dashboard/sidebar-dashboard');
         $this->load->view('dashboard/index');
         $this->load->view('produc_cal/index', $data);
         $this->load->view('produc_cal/input_prod_cal');
         $this->load->view('produc_cal/table_prod_cal');
+
         $this->load->view('templates/footer');
     }
     public function inputTank()
@@ -34,7 +38,7 @@ class ProduCalcul extends CI_Controller
         $query = $this->User->getUserByUsername($_SESSION['username_user']);
         $user = $query->row();
         date_default_timezone_set("Asia/Jakarta");
-        $date = date_create('2022-07-24 03:22:11');
+        $date = date_create('now');
         $time = $date->format('Y-m-d H:i:s');
         $nama_tank = $this->input->post('namaTank');
         $oil_cm_production = $this->input->post('inputOilCmProd');
@@ -49,14 +53,15 @@ class ProduCalcul extends CI_Controller
         $storageTank = $this->StorageTank->getDataStorageTankbyName($nama_tank)->row();
 
         $dateNow = date_create('now');
+        $lastInsertOil = 0;
         if (isset($storageTank)) {
+            if (date_format($date, 'Y-F-d') == $storageTank->tanggal_input) {
+                $lastInsertOil = $storageTank->oil_cm_production;
+            }
             $dateNow = date_create($storageTank->time);
-            $lastInsertOil = $storageTank->oil_cm_production;
-            $lastInsertWater = $storageTank->water_cm_production;
         } else {
             $dateNow = date_create('now');
             $lastInsertOil = 0;
-            $lastInsertWater = 0;
         }
 
 
@@ -70,7 +75,7 @@ class ProduCalcul extends CI_Controller
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
-                        'rate_oil_per3jam' => $oil_bbls_production,
+                        'rate_oil_per3jam' => 0,
                         'water_cm_production' => $water_cm_production,
                         'water_bbls_production' => $water_cm_production,
                         'oil_bbls_pump' => $oil_bbls_pump,
@@ -86,9 +91,9 @@ class ProduCalcul extends CI_Controller
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
-                        'rate_oil_per3jam' => $oil_bbls_production,
+                        'rate_oil_per3jam' => ($oil_cm_production - $lastInsertOil) * 1.7,
                         'water_cm_production' => $water_cm_production,
-                        'water_bbls_production' => ($lastInsertWater - $water_bbls_production) * 1.7,
+                        'water_bbls_production' =>  $water_bbls_production,
                         'oil_bbls_pump' => $oil_bbls_pump,
                         'water_bbls_pump' => $water_bbls_pump,
                         'nama_budi' => $budi,
@@ -107,7 +112,7 @@ class ProduCalcul extends CI_Controller
                         'oil_bbls_production' => $oil_bbls_production,
                         'rate_oil_per3jam' => ($oil_cm_production - $lastInsertOil) * 1.7,
                         'water_cm_production' => $water_cm_production,
-                        'water_bbls_production' => ($lastInsertWater - $water_bbls_production) * 1.7,
+                        'water_bbls_production' => $water_bbls_production,
                         'oil_bbls_pump' => $oil_bbls_pump,
                         'water_bbls_pump' => $water_bbls_pump,
                         'nama_budi' => $budi,
@@ -125,9 +130,9 @@ class ProduCalcul extends CI_Controller
                         'nama_tank' => $nama_tank,
                         'oil_cm_production' => $oil_cm_production,
                         'oil_bbls_production' => $oil_bbls_production,
-                        'rate_oil_per3jam' => $oil_bbls_production,
+                        'rate_oil_per3jam' => 0,
                         'water_cm_production' => $water_cm_production,
-                        'water_bbls_production' => ($lastInsertWater - $water_bbls_production) * 1.7,
+                        'water_bbls_production' => $water_bbls_production,
                         'oil_bbls_pump' => $oil_bbls_pump,
                         'water_bbls_pump' => $water_bbls_pump,
                         'nama_budi' => $budi,
@@ -143,7 +148,7 @@ class ProduCalcul extends CI_Controller
                         'oil_bbls_production' => $oil_bbls_production,
                         'rate_oil_per3jam' => $oil_bbls_production,
                         'water_cm_production' => $water_cm_production,
-                        'water_bbls_production' => ($lastInsertWater - $water_bbls_production) * 1.7,
+                        'water_bbls_production' => $water_bbls_production,
                         'oil_bbls_pump' => $oil_bbls_pump,
                         'water_bbls_pump' => $water_bbls_pump,
                         'nama_budi' => $budi,

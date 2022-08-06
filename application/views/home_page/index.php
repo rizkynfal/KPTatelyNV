@@ -30,7 +30,8 @@
                 <div class="container-fluid border-light border border-1 rounded p-2 mb-3">
                   <h5 class="text-light text-center fw-bold">Superintendent Login</h5>
                   <hr class="text-light">
-                  <form action="<?= base_url() ?>home/loginSuperint" method="POST">
+                  <form action="<?= base_url() ?>home/loginSuperint" method="POST" id="loginSuperintendent">
+                    <input type="text" class="form-control" id="login" name="login" value="Superintendent" form="loginSuperintendent" style="display: none;">
                     <div class="mb-3 shadow rounded p-2">
                       <label class="text-light form-label fs-5">Username</label>
                       <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
@@ -42,7 +43,7 @@
                     </div>
 
                     <div class="mt-4 d-flex justify-content-center ">
-                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Login" id="login">
+                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Superintendent" id="login" name="login">
                     </div>
                   </form>
                 </div>
@@ -53,9 +54,11 @@
               </div>
               <div class="collapse" id="loginCollapseSupervisor">
                 <div class="container-fluid border-light border border-1 rounded p-2 mb-3">
+                  <input type="text" class="form-control" id="login" name="login" value="Supervisor" style="display: none;">
                   <h5 class="text-light text-center fw-bold">Supervisor Login</h5>
                   <hr class="text-light">
-                  <form action="<?= base_url() ?>home/loginSupervisor" method="POST">
+                  <form action="<?= base_url() ?>home/loginSupervisor" method="POST" id="loginSupervisor">
+                    <input type="text" class="form-control" id="login" name="login" value="Supervisor" form="loginSupervisor" style="display: none;">
                     <div class="mb-3 shadow rounded p-2">
                       <label class="text-light form-label fs-5">Username</label>
                       <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
@@ -67,7 +70,7 @@
                     </div>
 
                     <div class="mt-4 d-flex justify-content-center ">
-                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Login" id="login">
+                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Supervisor" id="login" name="login">
                     </div>
                   </form>
                 </div>
@@ -91,7 +94,7 @@
                     </div>
 
                     <div class="mt-4 d-flex justify-content-center ">
-                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Login" id="login">
+                      <input type="submit" class="btn btn-primary px-4 fs-4 mb-3 shadow rounded" value="Operator" id="login" name="login">
                     </div>
                   </form>
                 </div>
